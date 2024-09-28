@@ -1,172 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %} <!-- Add this line to load static files -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cleaning Services</title>
+    <title>Elegant Cleaning</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
+        /* Quick styling for basic layout (replace with your actual CSS) */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-        }
-        .test-mode-banner {
-            background-color: #f44336;
-            color: #333;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
         }
         header {
-            background-color: #00bfa5;
-            padding: 15px;
+            background-color: #4A90E2;
             color: white;
+            padding: 20px;
             text-align: center;
+            position: relative;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #00796b;
+        header .logo {
+            max-width: 150px;
         }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
-        nav a:hover {
-            background-color: #004d40;
+        header .phone {
+            position: absolute;
+            right: 30px;
+            top: 20px;
         }
         .hero {
-            background: url('clean-apartment.jpg') no-repeat center center;
-            background-size: cover;
-            padding: 60px 20px;
-            text-align: center;
+            background-color: #4A90E2;
             color: white;
+            text-align: center;
+            padding: 50px 20px;
         }
         .hero h1 {
-            font-size: 48px;
+            font-size: 2.5em;
         }
-        .hero button {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: #00bfa5;
+        .features {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f4f4f4;
+            padding: 30px 20px;
+        }
+        .features .feature {
+            text-align: center;
+            width: 30%;
+        }
+        .features img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .about-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .services {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .services h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .services-grid .service-item {
+            width: 30%;
+            margin: 10px;
+        }
+        .services-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .services-grid h3 {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+        .products {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .form-section {
+            padding: 40px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .form-section form {
+            display: inline-block;
+            text-align: left;
+        }
+        .form-section input, .form-section textarea {
+            width: 300px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section input[type="submit"] {
+            background-color: #4A90E2;
             color: white;
             border: none;
             cursor: pointer;
         }
-        .services, .offers, .reviews {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            padding: 40px 20px;
-        }
-        .card {
-            background-color: white;
-            padding: 20px;
-            width: 30%;
-            margin: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .card img {
-            width: 50px;
-            height: 50px;
-        }
-        .card h3 {
-            font-size: 24px;
-            color: #00796b;
-        }
         footer {
-            background-color: #00796b;
+            padding: 20px;
+            background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px;
+        }
+        footer a {
+            color: #4A90E2;
         }
     </style>
 </head>
 <body>
 
-<div class="test-mode-banner">
-    Sayt test rejimida ishlamoqda
-</div>
+    <!-- Header -->
+    <header>
+        <img src="{% static 'images/logo.svg' %}" alt="Elegant Cleaning Logo" class="logo">
+        <div class="phone">+380 98 336-38-38</div>
+        <a href="#" class="button">Заказать Уборку</a>
+    </header>
 
-<header>
-    <h1>Cleaning Services</h1>
-</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Уборка квартир, Частных домов, Коттеджей, Офисов</h1>
+        <p>Мы предлагаем высококачественные услуги по уборке с гарантией чистоты и уюта для вашего дома или офиса.</p>
+    </section>
 
-<nav>
-    <a href="#services">Our Services</a>
-    <a href="#prices">Prices & Discounts</a>
-    <a href="#booking">Service Booking</a>
-    <a href="#contact">Contact Us</a>
-    <a href="#reviews">Customer Reviews</a>
-    <a href="#faq">FAQ</a>
-</nav>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <img src="{% static 'images/test.jpg' %}" alt="Quality">
+            <h3>Качество</h3>
+            <p>Высококачественные стандарты уборки</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'images/test.jpg' %}" alt="Experience">
+            <h3>Эксперты Уборки</h3>
+            <p>Профессиональные клинеры с опытом работы</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'images/test.jpg' %}" alt="24/7 Support">
+            <h3>24/7 Саппорт</h3>
+            <p>Мы всегда готовы вам помочь</p>
+        </div>
+    </section>
 
-<section class="hero">
-    <h1>Get Your Space Sparkling Clean</h1>
-    <button>Book Now</button>
-</section>
+    <!-- About Section -->
+    <section class="about-section">
+        <h2>О нас</h2>
+        <p>Elegant Cleaning была основана в 2020 году и с тех пор стремится обеспечить высококачественные услуги по уборке квартир, домов, офисов и коттеджей. Мы используем только профессиональное оборудование и сертифицированные средства для достижения наилучших результатов. Наша команда состоит из опытных специалистов, которые любят свое дело.</p>
+    </section>
 
-<section id="services" class="services">
-    <div class="card">
-        <img src="apartment-icon.png" alt="Apartment Cleaning">
-        <h3>Apartment Cleaning</h3>
-        <p>Standard and deep cleaning services for your home.</p>
-    </div>
-    <div class="card">
-        <img src="office-icon.png" alt="Corporate Cleaning">
-        <h3>Corporate Cleaning</h3>
-        <p>Office, medical, and hotel cleaning services for businesses.</p>
-    </div>
-    <div class="card">
-        <img src="window-icon.png" alt="Window Washing">
-        <h3>Window Washing</h3>
-        <p>Internal, external, and panoramic window cleaning.</p>
-    </div>
-    <div class="card">
-        <img src="sofa-icon.png" alt="Furniture Cleaning">
-        <h3>Furniture Cleaning</h3>
-        <p>Deep cleaning for sofas, armchairs, and more.</p>
-    </div>
-    <div class="card">
-        <img src="event-icon.png" alt="Event Cleaning">
-        <h3>Event Cleaning</h3>
-        <p>Pre-event and post-event cleaning services.</p>
-    </div>
-</section>
+    <!-- Services Section -->
+    <section class="services">
+        <h2>У нас Широкий Спектр Клининговых Услуг</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <img src="{% static 'images/test.jpg' %}" alt="Service 1">
+                <h3>Химическая уборка</h3>
+            </div>
+            <div class="service-item">
+                <img src="{% static 'images/test.jpg' %}" alt="Service 2">
+                <h3>Очистка фасадов</h3>
+            </div>
+            <div class="service-item">
+                <img src="{% static 'images/test.jpg' %}" alt="Service 3">
+                <h3>Чистка ковров</h3>
+            </div>
+            <div class="service-item">
+                <img src="{% static 'images/test.jpg' %}" alt="Service 4">
+                <h3>Мойка окон</h3>
+            </div>
+            <div class="service-item">
+                <img src="{% static 'images/test.jpg' %}" alt="Service 5">
+                <h3>Генеральная уборка</h3>
+            </div>
+            <div class="service-item">
+                <img src="{% static 'images/test.jpg' %}" alt="Service 6">
+                <h3>Зачистка после ремонта</h3>
+            </div>
+        </div>
+    </section>
 
-<section id="offers" class="offers">
-    <h2>Special Offers</h2>
-    <div class="card">
-        <h3>10% Off First Service</h3>
-        <p>Get a discount on your first booking with us!</p>
-    </div>
-    <div class="card">
-        <h3>Spring Cleaning Discount</h3>
-        <p>Save 20% on deep cleaning in March and April.</p>
-    </div>
-</section>
+    <!-- Product Section -->
+    <section class="products">
+        <h2>Какие продукты мы используем?</h2>
+        <img src="{% static 'images/test.jpg' %}" alt="Cleaning Products">
+    </section>
 
-<section id="reviews" class="reviews">
-    <h2>Customer Reviews</h2>
-    <div class="card">
-        <h3>John Doe</h3>
-        <p>⭐⭐⭐⭐⭐</p>
-        <p>"Fantastic service! My apartment has never been this clean."</p>
-    </div>
-    <div class="card">
-        <h3>Jane Smith</h3>
-        <p>⭐⭐⭐⭐</p>
-        <p>"Very professional and efficient. Highly recommend!"</p>
-    </div>
-</section>
+    <!-- Contact Form Section -->
+    <section class="form-section">
+        <h2>Заполните необходимые разделы, если хотите заказать</h2>
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Ваше Имя">
+            <input type="text" name="phone" placeholder="Телефон">
+            <textarea name="message" placeholder="Сообщение"></textarea>
+            <input type="submit" value="Отправить заявку">
+        </form>
+    </section>
 
-<footer>
-    <p>&copy; 2024 Cleaning Services. All rights reserved.</p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>Elegant Cleaning © 2024 | <a href="#">Политика конфиденциальности</a></p>
+    </footer>
 
 </body>
 </html>
