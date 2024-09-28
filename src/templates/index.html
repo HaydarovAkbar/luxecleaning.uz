@@ -2,9 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleaning Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .test-mode-banner {
+            background-color: #f44336;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+        }
+        header {
+            background-color: #00bfa5;
+            padding: 15px;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #00796b;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #004d40;
+        }
+        .hero {
+            background: url('clean-apartment.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 48px;
+        }
+        .hero button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #00bfa5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .services, .offers, .reviews {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            width: 30%;
+            margin: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            width: 50px;
+            height: 50px;
+        }
+        .card h3 {
+            font-size: 24px;
+            color: #00796b;
+        }
+        footer {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
+
+<div class="test-mode-banner">
+    Sayt test rejimida ishlamoqda
+</div>
+
+<header>
+    <h1>Cleaning Services</h1>
+</header>
+
+<nav>
+    <a href="#services">Our Services</a>
+    <a href="#prices">Prices & Discounts</a>
+    <a href="#booking">Service Booking</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#reviews">Customer Reviews</a>
+    <a href="#faq">FAQ</a>
+</nav>
+
+<section class="hero">
+    <h1>Get Your Space Sparkling Clean</h1>
+    <button>Book Now</button>
+</section>
+
+<section id="services" class="services">
+    <div class="card">
+        <img src="apartment-icon.png" alt="Apartment Cleaning">
+        <h3>Apartment Cleaning</h3>
+        <p>Standard and deep cleaning services for your home.</p>
+    </div>
+    <div class="card">
+        <img src="office-icon.png" alt="Corporate Cleaning">
+        <h3>Corporate Cleaning</h3>
+        <p>Office, medical, and hotel cleaning services for businesses.</p>
+    </div>
+    <div class="card">
+        <img src="window-icon.png" alt="Window Washing">
+        <h3>Window Washing</h3>
+        <p>Internal, external, and panoramic window cleaning.</p>
+    </div>
+    <div class="card">
+        <img src="sofa-icon.png" alt="Furniture Cleaning">
+        <h3>Furniture Cleaning</h3>
+        <p>Deep cleaning for sofas, armchairs, and more.</p>
+    </div>
+    <div class="card">
+        <img src="event-icon.png" alt="Event Cleaning">
+        <h3>Event Cleaning</h3>
+        <p>Pre-event and post-event cleaning services.</p>
+    </div>
+</section>
+
+<section id="offers" class="offers">
+    <h2>Special Offers</h2>
+    <div class="card">
+        <h3>10% Off First Service</h3>
+        <p>Get a discount on your first booking with us!</p>
+    </div>
+    <div class="card">
+        <h3>Spring Cleaning Discount</h3>
+        <p>Save 20% on deep cleaning in March and April.</p>
+    </div>
+</section>
+
+<section id="reviews" class="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="card">
+        <h3>John Doe</h3>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Fantastic service! My apartment has never been this clean."</p>
+    </div>
+    <div class="card">
+        <h3>Jane Smith</h3>
+        <p>⭐⭐⭐⭐</p>
+        <p>"Very professional and efficient. Highly recommend!"</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Cleaning Services. All rights reserved.</p>
+</footer>
 
 </body>
 </html>

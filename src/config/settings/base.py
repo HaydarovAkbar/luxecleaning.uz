@@ -13,15 +13,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG", default=False, cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 LOCAL_APPS = [
-    'modeltranslation',
-    'jazzmin',
+    # 'modeltranslation',
+    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -35,24 +35,24 @@ DEV_APPS = [
     # 'bot',
 ]
 PROD_APPS = [
-    'rest_framework',
-    'corsheaders',
-    'rest_framework.authtoken',
-    'rest_framework_simplejwt',
-    "rest_framework_simplejwt.token_blacklist",
-    'drf_yasg',
+    # 'rest_framework',
+    # 'corsheaders',
+    # 'rest_framework.authtoken',
+    # 'rest_framework_simplejwt',
+    # "rest_framework_simplejwt.token_blacklist",
+    # 'drf_yasg',
     'axes',
-    'django_filters',
-    'django_extensions',
-    'django_redis',
+    # 'django_filters',
+    # 'django_extensions',
+    # 'django_redis',
 ]
 INSTALLED_APPS = LOCAL_APPS + PROD_APPS + DEV_APPS
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # translate
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'axes.middleware.AxesMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'middleware.default_language.CustomLocaleMiddleware',
+    # 'middleware.default_language.CustomLocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +81,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
+
+
+# Database settings
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
 
 # DRF settings
 
@@ -196,19 +207,6 @@ HOST = 'https://tashabbus.sport.uz/api'
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
 # CSRF_TRUSTED_ORIGINS = ['', HOST]
-
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
-SESSION_CACHE_ALIAS = 'default'
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': config('REDIS_LOCATION'),
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        }
-    }
-}
 
 # Bot settings
 TOKEN = config("TOKEN")
