@@ -21,7 +21,7 @@ ALLOWED_HOSTS = ['*']
 
 LOCAL_APPS = [
     # 'modeltranslation',
-    # 'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
