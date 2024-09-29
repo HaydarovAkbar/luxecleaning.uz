@@ -1,114 +1,180 @@
 /* Quick styling for basic layout (replace with your actual CSS) */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4A90E2;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        header .logo {
-            max-width: 150px;
-        }
-        header .phone {
-            position: absolute;
-            right: 30px;
-            top: 20px;
-        }
-        .hero {
-            background-color: #4A90E2;
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .hero h1 {
-            font-size: 2.5em;
-        }
-        .features {
-            display: flex;
-            justify-content: space-around;
-            background-color: #f4f4f4;
-            padding: 30px 20px;
-        }
-        .features .feature {
-            text-align: center;
-            width: 30%;
-        }
-        .features img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
-        .about-section {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .about-section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .services {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .services h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .services-grid .service-item {
-            width: 30%;
-            margin: 10px;
-        }
-        .services-grid img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .services-grid h3 {
-            margin-top: 10px;
-            font-size: 1.5em;
-        }
-        .products {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .form-section {
-            padding: 40px 20px;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        .form-section form {
-            display: inline-block;
-            text-align: left;
-        }
-        .form-section input, .form-section textarea {
-            width: 300px;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-section input[type="submit"] {
-            background-color: #4A90E2;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        footer {
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-        }
-        footer a {
-            color: #4A90E2;
-        }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4A90E2;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/*header .logo {*/
+/*    max-width: 150px;*/
+/*    margin: auto;*/
+/*}*/
+/* Header Container Styling */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distributes space between logo, phone, and button */
+    padding: 10px 20px;             /* Adds padding to the header */
+    background-color: #f5f5f5;      /* Background color for header */
+}
+
+/* Logo Styling */
+.logo {
+    max-height: 50px;               /* Adjust logo height */
+}
+
+header .phone {
+    position: absolute;
+    right: 300px;
+    top: 50px;
+    /*border: 1px solid white;*/
+    /*padding: 5px 10px;*/
+    /*border-radius: 5px;*/
+    /*background-size: 12px;*/
+}
+/* Phone icon url call:+998993234234 */
+
+/*header .phone:hover {*/
+/*    background-color: white;*/
+/*    color: #4A90E2;*/
+/*}*/
+
+.button {
+    float: right;               /* Pushes the button to the right */
+    background-color: #FF6F61;  /* Coral background */
+    color: white;               /* White text */
+    padding: 25px 35px;         /* Padding around the text */
+    border-radius: 10px;        /* Rounded corners */
+    font-size: 16px;            /* Font size */
+    font-weight: bold;          /* Bold text */
+    text-decoration: none;      /* Remove underline */
+    display: inline-block;      /* Acts like a button */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+}
+
+.button:hover {
+    background-color: #FF4F41; /* Darker coral on hover */
+    transform: translateY(-2px); /* Lift on hover */
+}
+
+.hero {
+    background-color: #4A90E2;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f4f4f4;
+    padding: 30px 20px;
+}
+
+.features .feature {
+    text-align: center;
+    width: 30%;
+}
+
+.features img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.about-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.services {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services-grid .service-item {
+    width: 30%;
+    margin: 10px;
+}
+
+.services-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.services-grid h3 {
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+.products {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.form-section {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.form-section form {
+    display: inline-block;
+    text-align: left;
+}
+
+.form-section input, .form-section textarea {
+    width: 300px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-section input[type="submit"] {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+footer a {
+    color: #4A90E2;
+}
