@@ -8,94 +8,32 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+<section>
+    <div class="fullscreen-background">
+        <div class="content">
+            <h1>Professional Cleaning Services</h1>
+            <p>We ensure your home or office is spotless and fresh, every time.</p>
+        </div>
+    </div>
 
-    <header>
-        <img src="{% static 'images/logo.svg' %}" alt="Elegant Cleaning Logo" class="logo">
-        <div class="phone">+998 77 114 3555</div>
-        <a href="https://t.me/luxecleaninguz_bot" class="button">Заказать Уборку</a>
-    </header>
-
-    <section class="hero">
+    <div class="content-wrapper">
         <h1>Уборка квартир, Частных домов, Коттеджей, Офисов</h1>
-        <p>Мы предлагаем высококачественные услуги по уборке с гарантией чистоты и уюта для вашего дома или офиса.</p>
-    </section>
+        <p>Мы стараемся сделать качественную уборку дома и уложиться в один день по времени</p>
 
-    <section class="features">
-        <div class="feature">
-            <img src="{% static 'images/test.jpg' %}" alt="Quality">
-            <h3>Качество</h3>
-            <p>Высококачественные стандарты уборки</p>
+        <div id="category-container" class="category-box">
+            {% for category in categories %}
+            <div class="category">
+                <div class="icon">
+                    <img src="{{ category.icon.url }}" alt="{{ category.title }}">
+                </div>
+                <h2>{{ category.title }}</h2>
+                <p>{{ category.text }}</p>
+            </div>
+            {% endfor %}
         </div>
-        <div class="feature">
-            <img src="{% static 'images/test.jpg' %}" alt="Experience">
-            <h3>Эксперты Уборки</h3>
-            <p>Профессиональные клинеры с опытом работы</p>
-        </div>
-        <div class="feature">
-            <img src="{% static 'images/test.jpg' %}" alt="24/7 Support">
-            <h3>24/7 Саппорт</h3>
-            <p>Мы всегда готовы вам помочь</p>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <h2>О нас</h2>
-        <p>Elegant Cleaning была основана в 2020 году и с тех пор стремится обеспечить высококачественные услуги по уборке квартир, домов, офисов и коттеджей. Мы используем только профессиональное оборудование и сертифицированные средства для достижения наилучших результатов. Наша команда состоит из опытных специалистов, которые любят свое дело.</p>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services">
-        <h2>У нас Широкий Спектр Клининговых Услуг</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <img src="{% static 'images/test.jpg' %}" alt="Service 1">
-                <h3>Химическая уборка</h3>
-            </div>
-            <div class="service-item">
-                <img src="{% static 'images/test.jpg' %}" alt="Service 2">
-                <h3>Очистка фасадов</h3>
-            </div>
-            <div class="service-item">
-                <img src="{% static 'images/test.jpg' %}" alt="Service 3">
-                <h3>Чистка ковров</h3>
-            </div>
-            <div class="service-item">
-                <img src="{% static 'images/test.jpg' %}" alt="Service 4">
-                <h3>Мойка окон</h3>
-            </div>
-            <div class="service-item">
-                <img src="{% static 'images/test.jpg' %}" alt="Service 5">
-                <h3>Генеральная уборка</h3>
-            </div>
-            <div class="service-item">
-                <img src="{% static 'images/test.jpg' %}" alt="Service 6">
-                <h3>Зачистка после ремонта</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Section -->
-    <section class="products">
-        <h2>Какие продукты мы используем?</h2>
-        <img src="{% static 'images/test.jpg' %}" alt="Cleaning Products">
-    </section>
-
-    <!-- Contact Form Section -->
-    <section class="form-section">
-        <h2>Заполните необходимые разделы, если хотите заказать</h2>
-        <form action="#" method="POST">
-            <input type="text" name="name" placeholder="Ваше Имя">
-            <input type="text" name="phone" placeholder="Телефон">
-            <textarea name="message" placeholder="Сообщение"></textarea>
-            <input type="submit" value="Отправить заявку">
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>Elegant Cleaning © 2024 | <a href="#">Политика конфиденциальности</a></p>
-    </footer>
-
+<script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>
