@@ -56,6 +56,17 @@
     font-size: 1.2rem;
 }
 
+.main-card{
+    display: flex;
+    justify-content: space-between;
+}
+.main-card div
+        {
+        background-color: red;
+        width: 40px;
+        height: 30px;
+    }
+
 /* To control hidden or shown state */
 .hidden {
     display: none;

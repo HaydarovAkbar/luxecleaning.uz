@@ -36,6 +36,7 @@ class DashboardCategory(models.Model):
         verbose_name_plural = 'Dashboard Categories'
         db_table = 'dashboard_category'
 
+
 class About(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
