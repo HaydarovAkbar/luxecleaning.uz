@@ -9,29 +9,23 @@
 </head>
 <body>
 <section>
-    <div class="fullscreen-background">
+    <div class="fullscreen-background" style="background-image: url('{{ dashboards.image.url }}');">
         <div class="content">
             <h1>Professional Cleaning Services</h1>
             <p>We ensure your home or office is spotless and fresh, every time.</p>
         </div>
     </div>
 
-    <div class="content-wrapper">
-        <h1>Уборка квартир, Частных домов, Коттеджей, Офисов</h1>
-        <p>Мы стараемся сделать качественную уборку дома и уложиться в один день по времени</p>
-
-        <div id="category-container" class="category-box">
-            {% for category in categories %}
-            <div class="category">
-                <div class="icon">
-                    <img src="{{ category.icon.url }}" alt="{{ category.title }}">
-                </div>
-                <h2>{{ category.title }}</h2>
-                <p>{{ category.text }}</p>
-            </div>
-            {% endfor %}
+    <!-- Category Card Section -->
+    <div class="category-carousel">
+        {% for category in categories %}
+        <div class="category-card" id="category1">
+            <img src="{{ category.icon.url }}" alt="{{ category.title1 }}">
+            <h2>{{ category.title1 }}</h2>
         </div>
+        {% endfor %}
     </div>
+
 </section>
 
 <script src="{% static 'js/scripts.js' %}"></script>

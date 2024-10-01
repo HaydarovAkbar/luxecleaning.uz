@@ -4,7 +4,7 @@ from .models import Dashboard, DashboardCategory, About, Services
 
 
 def index(request):
-    dashboards = Dashboard.objects.all()
+    dashboards = Dashboard.objects.all().first()
     dashboard_categories = DashboardCategory.objects.all()
     abouts = About.objects.all()
     services = Services.objects.all()
@@ -14,4 +14,5 @@ def index(request):
         'abouts': abouts,
         'services': services,
     }
+    print(dashboards.image.url)
     return render(request, 'index.html', data)
