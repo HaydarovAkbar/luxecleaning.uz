@@ -42,6 +42,7 @@ PROD_APPS = [
     # "rest_framework_simplejwt.token_blacklist",
     # 'drf_yasg',
     'axes',
+    'django_summernote',
     # 'django_filters',
     # 'django_extensions',
     # 'django_redis',

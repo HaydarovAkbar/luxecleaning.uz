@@ -88,6 +88,25 @@ class ImportantInformation(models.Model):
         db_table = 'important_information'
 
 
+class WhyChooseUs(models.Model):
+    title = models.CharField(max_length=255, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+    image1 = models.ImageField(upload_to='why_choose_us/', null=True, blank=True)
+    image2 = models.ImageField(upload_to='why_choose_us/', null=True, blank=True)
+    image3 = models.ImageField(upload_to='why_choose_us/', null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Почему выбирают нас'
+        verbose_name_plural = 'Почему выбирают нас?'
+        db_table = 'why_choose_us'
+
+
 class Footer(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
