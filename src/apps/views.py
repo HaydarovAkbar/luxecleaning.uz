@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from telegram import Update
+from .bot.main import bot, dispatcher
+import json
+from django.views import View
 
 from .models import Dashboard, DashboardCategory, About, Services, WhyChooseUs, Footer
 
@@ -35,3 +40,19 @@ def message(request):
         return HttpResponse("Thank you for your message!")
 
     return render(request, 'index.html')
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class MainView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('GET request')
+
+    def post(self, request, *args, **kwargs):
+        try:
+            body = request.body
+            body_json = json.loads(body)
+            update: Update = Update.de_json(body_json, bot)
+            dispatcher.process_update(update)
+        except Exception as e:
+            print(e)
+        return HttpResponse('POST request')

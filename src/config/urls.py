@@ -4,11 +4,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from apps import urls as apps_urls
-from apps.views import message
+from apps.views import message, MainView
 
 urlpatterns = [
-    path('api/admin/', admin.site.urls),
-    path('', include(apps_urls)),
-    path('message/', message, name='message'),
-    path("summernote/", include("django_summernote.urls")),  # add this
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('api/admin/', admin.site.urls),
+                  path('', include(apps_urls)),
+                  path('message/', message, name='message'),
+                  path("summernote/", include("django_summernote.urls")),  # add this
+                  path("bot/", MainView.as_view(), name='bot'),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
+                                                                                         document_root=settings.STATIC_ROOT)
