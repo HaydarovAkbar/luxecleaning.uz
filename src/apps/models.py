@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
 
 class Dashboard(models.Model):
@@ -136,3 +137,31 @@ class Footer(models.Model):
         verbose_name = 'Footer'
         verbose_name_plural = 'Footers'
         db_table = 'footer'
+
+
+class TgUsers(models.Model):
+    chat_id = models.PositiveIntegerField(null=True)
+    username = models.CharField(max_length=255, null=True, blank=True)
+    first_name = models.CharField(max_length=255, null=True, blank=True)
+    last_name = models.CharField(max_length=255, null=True, blank=True)
+    phone_number = models.CharField(max_length=13,  # Adjust based on your needs +998996633255
+                                    validators=[
+                                        RegexValidator(
+                                            regex=r'^\+998\d{9}$',  # Example regex for international phone numbers
+                                            message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
+                                        )
+                                    ])
+
+    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name = 'Telegram User'
+        verbose_name_plural = 'Telegram Users'
+        db_table = 'tg_users'

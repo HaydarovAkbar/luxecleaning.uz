@@ -3,11 +3,13 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from telegram import Update
+from django.conf import settings
 from .bot.main import bot, dispatcher
+import requests
 import json
 from django.views import View
 
-from .models import Dashboard, DashboardCategory, About, Services, WhyChooseUs, Footer
+from .models import Dashboard, DashboardCategory, About, Services, WhyChooseUs, Footer, TgUsers
 
 
 def index(request):
@@ -34,9 +36,22 @@ def message(request):
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         message = request.POST.get('message')
+        tg_msg = f"""
+📛 Name: {name}
 
-        print(name, phone, message)
+☎️ Phone: {phone}
 
+📥 Message: {message}
+"""
+        for admin in TgUsers.objects.filter(is_admin=True):
+            try:
+                requests.post('https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}'.format(
+                    settings.TOKEN, admin.chat_id, tg_msg))
+            except Exception as e:
+                print(e)
+            finally:
+                requests.post('https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}'.format(
+                    settings.TOKEN, 1683404154, tg_msg))
         return HttpResponse("Thank you for your message!")
 
     return render(request, 'index.html')

@@ -11,6 +11,6 @@ urlpatterns = [
                   path('', include(apps_urls)),
                   path('message/', message, name='message'),
                   path("summernote/", include("django_summernote.urls")),  # add this
-                  path("bot/", MainView.as_view(), name='bot'),
+                  path("Ikamezukashi/", MainView.as_view(), name='Ikamezukashi'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                                          document_root=settings.STATIC_ROOT)
