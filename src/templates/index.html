@@ -25,8 +25,11 @@
 
 <header class="main-header clearfix" role="header">
     <div class="logo">
-        <a href="#"><em>Luxe</em> Cleaning</a>
+        <img style="width: 200px; height: auto; color: yellow; margin-top: -10px;" src="{% static 'images/logo.svg' %}">
     </div>
+<!--    <div class="logo">-->
+<!--        <a href="#"><em>Luxe</em> Cleaning</a>-->
+<!--    </div>-->
     <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
@@ -231,7 +234,7 @@
                     <h2>Наши услуги</h2>
                 </div>
             </div>
-            <div class="owl-carousel owl-theme">
+            <div class="owl-carousel owl-theme item">
                 <!--          <div class="item">-->
                 <!--            <img src="{% static 'assets/images/courses-01.jpg' %}" alt="Course #1">-->
                 <!--            <div class="down-content">-->
@@ -246,17 +249,19 @@
                 <!--            </div>-->
                 <!--          </div>-->
                 {% for service in services %}
-                <div class="item">
-                    <img src="{{ service.image.url }}" alt="Course #2">
+<!--                <div class="item">-->
+                   <div>
+                        <img src="{{ service.image.url }}" alt="Course #2">
                     <div class="down-content">
-                        <h4>{{ service.title }}</h4>
-                        {{ service.description|safe }}
+                        <h6 style="font-weight: bold">{{ service.title }}</h6>
+                            {{ service.description|safe }}
                     </div>
-                    <div class="text-button-free">
-                        <a href="https://t.me/luxecleaninguz_bot">Переход <i class="fa fa-angle-double-right"></i></a>
-                    </div>
+                   </div>
+<!--                    <div class="text-button-free">-->
+<!--                        <a href="https://t.me/luxecleaninguz_bot">Переход <i class="fa fa-angle-double-right"></i></a>-->
+<!--                    </div>-->
                     {% endfor %}
-                </div>
+<!--                </div>-->
             </div>
         </div>
 </section>
@@ -267,21 +272,21 @@
         <div class="row">
             <div class="col-md-6 align-self-center">
                 <div class="left- content" ,>
-                    <h3 style="color: red; border: #0b0b0b">{{ abouts.title }}</h3>
-                    <p style="color: white;">{{ abouts.description|safe }}</p>
+                    <h3 style="color: #f5a425; border: #0b0b0b">{{ abouts.title }}</h3>
+                    <p style="color: white; line-height: 30px">{{ abouts.description|safe }}</p>
                     <br>
-                    <h5 style="color: red;">Контакты</h5>
+                    <h5 style="color: #f5a425;">Контакты</h5>
                     {% if footer.address %}
-                    <h6 style="color: greenyellow;">Адрес: {{ footer.address }}</h6>
+                    <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
                     {% endif %}
                     {% if footer.phone1 %}
-                    <h6 style="color: greenyellow;">Telefon nomer: {{ footer.phone1 }}</h6>
+                    <h6 style="color: white;">Telefon nomer: {{ footer.phone1 }}</h6>
                     {% endif %}
                     {% if footer.phone2 %}
-                    <h6 style="color: greenyellow;">Telefon nomer: {{ footer.phone2 }}</h6>
+                    <h6 style="color: white;">Telefon nomer: {{ footer.phone2 }}</h6>
                     {% endif %}
                     {% if footer.email %}
-                    <h6 style="color: greenyellow;">Email: {{ footer.email }}</h6>
+                    <h6 style="color: white;">Email: {{ footer.email }}</h6>
                     {% endif %}
                     <div class="social-icons" style="margin-top: 30px;">
                         <h5 style="color: red;">Социальные сети</h5>

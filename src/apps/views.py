@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
@@ -8,6 +8,7 @@ from .bot.main import bot, dispatcher
 import requests
 import json
 from django.views import View
+
 
 from .models import Dashboard, DashboardCategory, About, Services, WhyChooseUs, Footer, TgUsers
 
@@ -36,6 +37,7 @@ def message(request):
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         message = request.POST.get('message')
+        print(name, phone, message)
         tg_msg = f"""
 📛 Name: {name}
 
@@ -52,9 +54,11 @@ def message(request):
             finally:
                 requests.post('https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}'.format(
                     settings.TOKEN, 1683404154, tg_msg))
-        return HttpResponse("Thank you for your message!")
+        # redirect to home page
+        return redirect('/')
 
-    return render(request, 'index.html')
+
+    return HttpResponse("Invalid request!")
 
 
 @method_decorator(csrf_exempt, name='dispatch')
