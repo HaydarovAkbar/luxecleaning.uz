@@ -34,7 +34,7 @@
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
             <li><a href="#section1">Главная</a></li>
-            <li><a href="#section5">Контакт</a></li>
+            <li><a href="#section6">Контакт</a></li>
         </ul>
     </nav>
 </header>
@@ -275,64 +275,64 @@
                     <h3 style="color: #f5a425; border: #0b0b0b">{{ abouts.title }}</h3>
                     <p style="color: white; line-height: 30px">{{ abouts.description|safe }}</p>
                     <br>
-                    <h5 style="color: #f5a425;">Контакты</h5>
-                    {% if footer.address %}
-                    <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
-                    {% endif %}
-                    {% if footer.phone1 %}
-                    <h6 style="color: white;">Telefon nomer: {{ footer.phone1 }}</h6>
-                    {% endif %}
-                    {% if footer.phone2 %}
-                    <h6 style="color: white;">Telefon nomer: {{ footer.phone2 }}</h6>
-                    {% endif %}
-                    {% if footer.email %}
-                    <h6 style="color: white;">Email: {{ footer.email }}</h6>
-                    {% endif %}
-                    <div class="social-icons" style="margin-top: 30px;">
-                        <h5 style="color: red;">Социальные сети</h5>
-                        {% if footer.facebook %}
-                        <a href="{{ footer.facebook }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.instagram %}
-                        <a href="{{ footer.instagram }}" target="_blank"
-                           style="color: white; margin-right: 10px;font-size: 30px;">
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.linkedin %}
-                        <a href="{{ footer.linkedin }}" target="_blank"
-                           style="color: white; margin-right: 10px;font-size: 30px;">
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.twitter %}
-                        <a href="{{ footer.twitter }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.telegram %}
-                        <a href="{{ footer.telegram }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.youtube %}
-                        <a href="{{ footer.youtube }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-youtube" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.whatsapp %}
-                        <a href="{{ footer.whatsapp }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                    </div>
+<!--                    <h5 style="color: #f5a425;">Контакты</h5>-->
+<!--                    {% if footer.address %}-->
+<!--                    <h6 style="color: white;">Адрес: {{ footer.address }}</h6>-->
+<!--                    {% endif %}-->
+<!--                    {% if footer.phone1 %}-->
+<!--                    <h6 style="color: white;">Telefon nomer: {{ footer.phone1 }}</h6>-->
+<!--                    {% endif %}-->
+<!--                    {% if footer.phone2 %}-->
+<!--                    <h6 style="color: white;">Telefon nomer: {{ footer.phone2 }}</h6>-->
+<!--                    {% endif %}-->
+<!--                    {% if footer.email %}-->
+<!--                    <h6 style="color: white;">Email: {{ footer.email }}</h6>-->
+<!--                    {% endif %}-->
+<!--                    <div class="social-icons" style="margin-top: 30px;">-->
+<!--                        <h5 style="color: red;">Социальные сети</h5>-->
+<!--                        {% if footer.facebook %}-->
+<!--                        <a href="{{ footer.facebook }}" target="_blank"-->
+<!--                           style="color: white; margin-right: 10px; font-size: 30px;">-->
+<!--                            <i class="fa fa-facebook-square" aria-hidden="true"></i>-->
+<!--                        </a>-->
+<!--                        {% endif %}-->
+<!--                        {% if footer.instagram %}-->
+<!--                        <a href="{{ footer.instagram }}" target="_blank"-->
+<!--                           style="color: white; margin-right: 10px;font-size: 30px;">-->
+<!--                            <i class="fa fa-instagram" aria-hidden="true"></i>-->
+<!--                        </a>-->
+<!--                        {% endif %}-->
+<!--                        {% if footer.linkedin %}-->
+<!--                        <a href="{{ footer.linkedin }}" target="_blank"-->
+<!--                           style="color: white; margin-right: 10px;font-size: 30px;">-->
+<!--                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>-->
+<!--                        </a>-->
+<!--                        {% endif %}-->
+<!--                        {% if footer.twitter %}-->
+<!--                        <a href="{{ footer.twitter }}" target="_blank"-->
+<!--                           style="color: white; margin-right: 10px; font-size: 30px;">-->
+<!--                            <i class="fa fa-twitter-square" aria-hidden="true"></i>-->
+<!--                        </a>-->
+<!--                        {% endif %}-->
+<!--                        {% if footer.telegram %}-->
+<!--                        <a href="{{ footer.telegram }}" target="_blank"-->
+<!--                           style="color: white; margin-right: 10px; font-size: 30px;">-->
+<!--                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>-->
+<!--                        </a>-->
+<!--                        {% endif %}-->
+<!--                        {% if footer.youtube %}-->
+<!--                        <a href="{{ footer.youtube }}" target="_blank"-->
+<!--                           style="color: white; margin-right: 10px; font-size: 30px;">-->
+<!--                            <i class="fa fa-youtube" aria-hidden="true"></i>-->
+<!--                        </a>-->
+<!--                        {% endif %}-->
+<!--                        {% if footer.whatsapp %}-->
+<!--                        <a href="{{ footer.whatsapp }}" target="_blank"-->
+<!--                           style="color: white; margin-right: 10px; font-size: 30px;">-->
+<!--                            <i class="fa fa-whatsapp" aria-hidden="true"></i>-->
+<!--                        </a>-->
+<!--                        {% endif %}-->
+<!--                    </div>-->
                 </div>
             </div>
             <div class="col-md-6">
@@ -404,6 +404,64 @@
 </section>
 
 <footer>
+                        <h5 style="color: #f5a425;">Контакты</h5>
+                    {% if footer.address %}
+                    <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
+                    {% endif %}
+                    {% if footer.phone1 %}
+                    <h6 style="color: white;">Telefon nomer: {{ footer.phone1 }}</h6>
+                    {% endif %}
+                    {% if footer.phone2 %}
+                    <h6 style="color: white;">Telefon nomer: {{ footer.phone2 }}</h6>
+                    {% endif %}
+                    {% if footer.email %}
+                    <h6 style="color: white;">Email: {{ footer.email }}</h6>
+                    {% endif %}
+                    <div class="social-icons" style="margin-top: 30px;">
+                        <h5 style="color: #f5a425;">Социальные сети</h5>
+                        {% if footer.facebook %}
+                        <a href="{{ footer.facebook }}" target="_blank"
+                           style="color: white; margin-right: 10px; font-size: 30px;">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                        {% if footer.instagram %}
+                        <a href="{{ footer.instagram }}" target="_blank"
+                           style="color: white; margin-right: 10px;font-size: 30px;">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                        {% if footer.linkedin %}
+                        <a href="{{ footer.linkedin }}" target="_blank"
+                           style="color: white; margin-right: 10px;font-size: 30px;">
+                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                        {% if footer.twitter %}
+                        <a href="{{ footer.twitter }}" target="_blank"
+                           style="color: white; margin-right: 10px; font-size: 30px;">
+                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                        {% if footer.telegram %}
+                        <a href="{{ footer.telegram }}" target="_blank"
+                           style="color: white; margin-right: 10px; font-size: 30px;">
+                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                        {% if footer.youtube %}
+                        <a href="{{ footer.youtube }}" target="_blank"
+                           style="color: white; margin-right: 10px; font-size: 30px;">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                        {% if footer.whatsapp %}
+                        <a href="{{ footer.whatsapp }}" target="_blank"
+                           style="color: white; margin-right: 10px; font-size: 30px;">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
