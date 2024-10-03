@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Dashboard, DashboardCategory, About, Services, ImportantInformation, Footer, WhyChooseUs
+from .models import Dashboard, DashboardCategory, About, Services, ImportantInformation, Footer, WhyChooseUs, TgUsers
 from django_summernote.widgets import SummernoteWidget
 from django.db import models
 
@@ -18,3 +18,4 @@ admin.site.register(Services, EditorAdmin)
 admin.site.register(ImportantInformation)
 admin.site.register(Footer)
 admin.site.register(WhyChooseUs, EditorAdmin)
+admin.site.register(TgUsers)

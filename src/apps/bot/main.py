@@ -17,10 +17,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 
-# def start(update: Update, context: CallbackContext):
-#     update.message.reply_text('Hello!')
-
-
 def run():
     print('started webhook')
     bot.set_webhook(settings.HOST + '/Ikamezukashi/')

@@ -38,6 +38,8 @@ def message(request):
         phone = request.POST.get('phone')
         message = request.POST.get('message')
         tg_msg = f"""
+📩 New message from website:
+
 📛 Name: {name}
 
 ☎️ Phone: {phone}
@@ -50,9 +52,6 @@ def message(request):
                     settings.TOKEN, admin.chat_id, tg_msg))
             except Exception as e:
                 print(e)
-            finally:
-                requests.post('https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}'.format(
-                    settings.TOKEN, 1683404154, tg_msg))
         return redirect('/')
     return HttpResponse("Invalid request!")
 
