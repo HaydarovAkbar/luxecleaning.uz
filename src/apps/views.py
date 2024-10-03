@@ -37,7 +37,6 @@ def message(request):
         name = request.POST.get('name')
         phone = request.POST.get('phone')
         message = request.POST.get('message')
-        print(name, phone, message)
         tg_msg = f"""
 📛 Name: {name}
 
@@ -54,10 +53,7 @@ def message(request):
             finally:
                 requests.post('https://api.telegram.org/bot{}/sendMessage?chat_id={}&text={}'.format(
                     settings.TOKEN, 1683404154, tg_msg))
-        # redirect to home page
         return redirect('/')
-
-
     return HttpResponse("Invalid request!")
 
 

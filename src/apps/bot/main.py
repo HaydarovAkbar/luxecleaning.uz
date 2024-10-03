@@ -3,7 +3,7 @@ from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters, Co
     CallbackQueryHandler
 from decouple import config
 from django.conf import settings
-# from .methods.base import start
+from .methods.scripts import start
 # from .methods.admin import admin
 import logging
 from .states import States as state
@@ -17,13 +17,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 
-def start(update: Update, context: CallbackContext):
-    update.message.reply_text('Hello!')
-
-
-def send_feedback(update: Update, context: CallbackContext, data: dict):
-    print(data)
-    context.bot.send_message(chat_id=1683404154, text='Thank you for your message!')
+# def start(update: Update, context: CallbackContext):
+#     update.message.reply_text('Hello!')
 
 
 def run():
@@ -43,7 +38,7 @@ all_handler = ConversationHandler(
 
     },
     fallbacks=[CommandHandler('start', start),
-               CommandHandler('help', help),]
+               CommandHandler('help', help), ]
 )
 
 dispatcher.add_handler(all_handler)
