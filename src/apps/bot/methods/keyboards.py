@@ -1,7 +1,7 @@
 from typing import List
-from enum import Enum
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
 from .messages import Messages as msg
+
 
 class Keyboards:
     def __init__(self):

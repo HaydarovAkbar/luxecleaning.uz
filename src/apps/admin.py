@@ -11,11 +11,26 @@ class EditorAdmin(admin.ModelAdmin):
     }
 
 
-admin.site.register(Dashboard)
+class Editor2Admin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': SummernoteWidget},
+    }
+    list_display = ('title', 'created_at', 'updated_at')
+
+
+class BaseAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at', 'updated_at')
+
+
+class TGUsersAdmin(admin.ModelAdmin):
+    list_display = ('chat_id', 'first_name', 'last_name', 'is_admin', 'created_at')
+
+
+admin.site.register(Dashboard, BaseAdmin)
 admin.site.register(DashboardCategory, EditorAdmin)
-admin.site.register(About, EditorAdmin)
-admin.site.register(Services, EditorAdmin)
+admin.site.register(About, Editor2Admin)
+admin.site.register(Services, Editor2Admin)
 admin.site.register(ImportantInformation)
-admin.site.register(Footer)
-admin.site.register(WhyChooseUs, EditorAdmin)
-admin.site.register(TgUsers)
+admin.site.register(Footer, BaseAdmin)
+admin.site.register(WhyChooseUs, Editor2Admin)
+admin.site.register(TgUsers, TGUsersAdmin)

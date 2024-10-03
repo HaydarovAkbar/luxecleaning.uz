@@ -278,7 +278,7 @@ JAZZMIN_SETTINGS = {
         {"model": "auth.User"},
 
         # App with dropdown menu to all its models pages (Permissions checked against models)
-        {"app": "books"},
+        {"apps": "apps"},
     ],
 
     #############
@@ -308,7 +308,7 @@ JAZZMIN_SETTINGS = {
     "hide_models": [],
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
-    "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
+    "order_with_respect_to": ["auth", "apps.about", "apps.services", "apps.footer"],
 
     # Custom links to append to app groups, keyed on app name
     "custom_links": {
@@ -316,7 +316,7 @@ JAZZMIN_SETTINGS = {
             "name": "Make Messages",
             "url": "make_messages",
             "icon": "fas fa-comments",
-            "permissions": ["books.view_book"]
+            "permissions": ["about.view_about"]
         }]
     },
 
@@ -364,9 +364,10 @@ JAZZMIN_SETTINGS = {
     # - vertical_tabs
     # - collapsible
     # - carousel
-    "changeform_format": "horizontal_tabs",
+    "changeform_format": "single",
     # override change forms on a per modeladmin basis
-    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"},
+    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs",
+                                    "apps.about": "horizontal_tabs", "apps.services": "carousel"},
     # Add a language dropdown into the admin
     # "language_chooser": True,
     # 'set_language': 'ru'

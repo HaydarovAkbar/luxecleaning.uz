@@ -20,6 +20,30 @@ class Messages(SimpleNamespace):
         'en': ["🧾 Services", "👮‍♂️ About us 🏪", "📞 Contacts", "⚙️ Settings"]
     }
 
+    services = {
+        'uz': 'Xizmatlar bo\'limi',
+        'ru': 'Раздел услуг',
+        'en': 'Services section'
+    }
+
+    about = {
+        'uz': 'Biz haqimizda bo\'limi',
+        'ru': 'Раздел о нас',
+        'en': 'About us section'
+    }
+
+    contact = {
+        'uz': 'Aloqa bo\'limi',
+        'ru': 'Раздел контактов',
+        'en': 'Contacts section'
+    }
+
+    settings = {
+        'uz': 'Sozlamalar bo\'limi',
+        'ru': 'Раздел настроек',
+        'en': 'Settings section'
+    }
+
     help = {
         'uz': 'Yordam bo\'limi',
         'ru': 'Раздел помощи',

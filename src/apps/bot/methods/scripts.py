@@ -1,9 +1,10 @@
-from .keyboards import Keyboards as kb
-from .messages import Messages as msg
-from telegram import Update, Bot
 from telegram.ext import CallbackContext
 from telegram import Update
+
+from .keyboards import Keyboards as kb
+from .messages import Messages as msg
 from ..states import States as state
+
 from apps.models import TgUsers
 
 
@@ -36,6 +37,33 @@ def get_lang(update: Update, context: CallbackContext):
         user_db.save()
     query.message.delete()
     context.bot.send_message(chat_id=query.message.chat_id, text=msg().base.get(lang), reply_markup=kb.base(lang))
+    return state.GET_MENU
+
+
+def services(update: Update, context: CallbackContext):
+    user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
+    update.message.reply_text(msg().services.get(user_db.lang))
+    return state.GET_MENU
+
+
+def about(update: Update, context: CallbackContext):
+    user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
+
+    update.message.reply_text(msg().about.get(user_db.lang))
+    return state.GET_MENU
+
+
+def contact(update: Update, context: CallbackContext):
+    user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
+
+    update.message.reply_text(msg().contact.get(user_db.lang))
+    return state.GET_MENU
+
+
+def user_settings(update: Update, context: CallbackContext):
+    user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
+
+    update.message.reply_text(msg().settings.get(user_db.lang))
     return state.GET_MENU
 
 
