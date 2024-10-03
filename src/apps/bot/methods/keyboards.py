@@ -1,7 +1,7 @@
 from typing import List
 from enum import Enum
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
-
+from .messages import Messages as msg
 
 class Keyboards:
     def __init__(self):
@@ -11,8 +11,9 @@ class Keyboards:
     def language():
         inline = [
             [
-                InlineKeyboardButton('O\'zbek', callback_data='uz'),
-                InlineKeyboardButton('Русский', callback_data='ru'),
+                InlineKeyboardButton('O\'zbek 🇺🇿', callback_data='uz'),
+                InlineKeyboardButton('Русский 🇷🇺', callback_data='ru'),
+                # InlineKeyboardButton('English', callback_data='en')
             ]
         ]
         return InlineKeyboardMarkup(inline)
@@ -28,11 +29,17 @@ class Keyboards:
         return ReplyKeyboardMarkup([keyboard], resize_keyboard=True)
 
     @staticmethod
-    def base():
-        reply_buttons = [
-            ['📚 Kurslar', '📝 Testlar'],
-            ['📊 Natijalar', '📞 Aloqa']
-        ]
+    def base(lang: str):
+        base_menu = msg().base_menu.get(lang)
+        reply_buttons = []
+        i = []
+        for button in base_menu:
+            i.append(button)
+            if len(i) == 2:
+                reply_buttons.append(i)
+                i = []
+        if i:
+            reply_buttons.append(i)
         return ReplyKeyboardMarkup(reply_buttons, resize_keyboard=True)
 
     @staticmethod

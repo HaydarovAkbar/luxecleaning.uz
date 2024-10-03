@@ -3,10 +3,10 @@ from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters, Co
     CallbackQueryHandler
 from decouple import config
 from django.conf import settings
-from .methods.scripts import start
+from .methods.scripts import start, get_lang, help
 # from .methods.admin import admin
 import logging
-from .states import States as state
+from .states import States as st
 
 # from .messages.main import KeyboardText as msg_text
 
@@ -31,7 +31,11 @@ all_handler = ConversationHandler(
                   CommandHandler('help', help),
                   ],
     states={
+        st.GET_LANG: [CallbackQueryHandler(get_lang)],
+        st.GET_MENU: [CommandHandler('start', start),
+                      CommandHandler('help', help),
 
+                      ],
     },
     fallbacks=[CommandHandler('start', start),
                CommandHandler('help', help), ]

@@ -152,6 +152,7 @@ class TgUsers(models.Model):
                                         )
                                     ],
                                     null=True, blank=True)
+    lang = models.CharField(max_length=2, default='uz')
 
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -166,3 +167,8 @@ class TgUsers(models.Model):
         verbose_name = 'Telegram User'
         verbose_name_plural = 'Telegram Users'
         db_table = 'tg_users'
+        indexes = [
+            models.Index(fields=['chat_id'], name='chat_id_idx'),
+            models.Index(fields=['username'], name='username_idx'),
+            models.Index(fields=['phone_number'], name='phone_number_idx'),
+        ]
