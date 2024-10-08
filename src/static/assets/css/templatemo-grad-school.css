@@ -67,7 +67,7 @@ p {
 /* Buttons */
 
 .main-button a {
-    background-color: #f5a425;
+    background-color: #769fff;
     color: #fff;
     font-size: 13px;
     text-transform: uppercase;
@@ -136,7 +136,7 @@ a.menu-link {
 
     nav[role="navigation"] li:hover a,
     nav[role="navigation"] li.active a {
-        color: #f5a425;
+        color: #769fff;
     }
 
     @media screen and (min-width: 951px) {
@@ -156,7 +156,7 @@ a.menu-link {
 }
 
 .main-button a {
-    background-color: #f5a425;
+    background-color: #769fff;
     color: #fff;
     font-size: 13px;
     text-transform: uppercase;
@@ -165,7 +165,7 @@ a.menu-link {
     padding: 12px 20px;
     display: inline-block;
     outline: none;
-    border: 1px solid #d48919; /* Darker border for the bevel */
+    border: 1px solid #769fff; /* Darker border for the bevel */
     box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.4), /* Top light shadow */ 0 4px 8px rgba(0, 0, 0, 0.2); /* Outer bottom shadow */
     border-radius: 4px; /* Slight rounding for smooth edges */
     transition: box-shadow 0.2s ease;
@@ -173,7 +173,7 @@ a.menu-link {
 
 .main-button a:hover {
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2), /* Darker on hover */ 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced bottom shadow */
-    background-color: #e3941b; /* Slightly darker background on hover */
+    background-color: #769fff; /* Slightly darker background on hover */
 }
 
 
@@ -217,7 +217,7 @@ a.menu-link {
 
 .main-header .logo a em {
     font-style: normal;
-    color: #f5a425;
+    color: #769fff;
 }
 
 .main-menu {
@@ -299,13 +299,13 @@ a.menu-link {
 }
 
 .main-menu li .sub-menu li a:hover {
-    color: #f5a425;
+    color: #769fff;
     border: none;
 }
 
 .main-nav li:hover a,
 .main-nav li.active a {
-    border: 2px solid #f5a425;
+    border: 2px solid #769fff;
 }
 
 @media (max-width: 950px) {
@@ -378,7 +378,7 @@ a.menu-link {
 
 .main-banner .caption h2 em {
     font-style: normal;
-    color: #f5a425;
+    color: #769fff;
     font-weight: 900;
 }
 
@@ -484,7 +484,7 @@ section.features .col-4 {
 }
 
 .features-content:hover {
-    background-color: #f5a425;
+    background-color: #769fff;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -589,7 +589,7 @@ section.courses .owl-carousel button.owl-dot {
 }
 
 section.courses .owl-carousel button.active {
-    background-color: #f5a425;
+    background-color: #769fff;
 }
 
 .service-card {
@@ -697,7 +697,7 @@ section.courses .item .down-content p {
 
 section.courses .item .down-content img {
     width: 40px;
-    border: 2px solid #f5a425;
+    border: 2px solid #769fff;
     border-radius: 50%;
     text-align: left;
     display: inline-block;
@@ -710,7 +710,7 @@ section.courses .item .down-content .text-button-pay {
 }
 
 section.courses .item .down-content .text-button-pay a {
-    color: #f5a425;
+    color: #769fff;
     font-size: 13px;
 }
 
@@ -742,7 +742,7 @@ section.courses .owl-carousel button.owl-dot {
 }
 
 section.courses .owl-carousel button.active {
-    background-color: #f5a425;
+    background-color: #769fff;
 }
 
 
@@ -831,7 +831,7 @@ section.courses .owl-carousel button.active {
 
 /* Button styling remains consistent */
 button.button {
-    background-color: #f5a425;
+    background-color: #769fff;
     color: #fff;
     padding: 12px 20px;
     font-size: 14px;
@@ -845,7 +845,7 @@ button.button {
 }
 
 button.button:hover {
-    background-color: #e0941c;
+    background-color: #769fff;
         /*color: #333; !* Darker text color inside input *!*/
 
 }
@@ -875,8 +875,8 @@ button.button:hover {
 
 /* Title styling */
 .section.video .left-content h3 {
-    color: #f5a425; /* Orange title color */
-    border-bottom: 2px solid #f5a425;
+    color: #769fff; /* Orange title color */
+    border-bottom: 2px solid #769fff;
     font-size: 28px;
     padding-bottom: 10px;
 }
@@ -1467,7 +1467,7 @@ section.contact form textarea::placeholder {
 }
 
 section.contact form button {
-    background-color: #f5a425;
+    background-color: #769fff;
     color: #fff;
     font-size: 13px;
     text-transform: uppercase;
@@ -1499,7 +1499,7 @@ footer p {
 
 footer p a,
 footer p a:hover {
-    color: #f5a425;
+    color: #769fff;
 }
 
 @media screen and (max-width: 992px) {
