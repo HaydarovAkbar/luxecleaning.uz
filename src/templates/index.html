@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Luxe Cleaning</title>
-    <link rel="icon" href="{% static 'images/logo.svg' %}" type="image/svg">
+    <link rel="icon" href="{% static 'luxe_cleaning_logo.svg' %}" type="image/svg">
 
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
@@ -25,12 +25,9 @@
 
 <header class="main-header clearfix" role="header">
     <div class="logo">
-        <img style="width: 200px; height: auto; color: yellow; margin-top: -10px;" src="{% static 'images/logo.svg' %}">
+        <img style="width: 200px; height: auto; color: yellow; margin-top: -10px;" src="{% static 'luxe_cleaning_logo.svg' %}">
     </div>
-<!--    <div class="logo">-->
-<!--        <a href="#"><em>Luxe</em> Cleaning</a>-->
-<!--    </div>-->
-    <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+<!--    <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>-->
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
             <li><a href="#section1">Главная</a></li>
@@ -49,9 +46,9 @@
         <div class="caption">
             <h2><em>Luxe Cleaning</em> Качественная уборка для вашего комфорта!</h2>
             <!-- <h6>Мы стараемся сделать качественную уборку дома и уложиться в один день по времени</h6> -->
-            <div class="main-button">
-                <div class="scroll-to-section"><a href="https://t.me/luxecleaninguz_bot">Подключение</a></div>
-            </div>
+            <!--            <div class="main-button">-->
+            <!--                <div class="scroll-to-section"><a href="https://t.me/luxecleaninguz_bot">Подключение</a></div>-->
+            <!--            </div>-->
         </div>
     </div>
 </section>
@@ -62,42 +59,20 @@
 <section class="features">
     <div class="container">
         <div class="row">
+            {% for category in categories %}
             <div class="col-lg-4 col-12">
                 <div class="features-post">
                     <div class="features-content">
                         <div class="content-show">
-                            <h4><i class="fa fa-star-half-full"></i>{{ categories.0.title1 }}</h4>
+                            <h4><i class="fa fa-star-half-full"></i>{{ category.title1 }}</h4>
                         </div>
                         <div class="content-hide">
-                            <p>{{ categories.0.text1 }}</p>
+                            <p>{{ category.text1 }}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-12">
-                <div class="features-post second-features">
-                    <div class="features-content">
-                        <div class="content-show">
-                            <h4><i class="fa fa-graduation-cap"></i>{{ categories.1.title1 }}</h4>
-                        </div>
-                        <div class="content-hide">
-                            <p>{{ categories.1.text1 }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-12">
-                <div class="features-post third-features">
-                    <div class="features-content">
-                        <div class="content-show">
-                            <h4><i class="fa fa-book"></i>{{ categories.2.title1 }}</h4>
-                        </div>
-                        <div class="content-hide">
-                            <p>{{ categories.2.text1 }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -115,7 +90,7 @@
             <div class="col-md-6">
                 <article class="video-item">
                     <figure>
-                        <a href="#" class="plays"><img
+                        <a href="https://t.me/luxecleaninguz_bot" class="plays"><img
                                 src="{{ abouts.image.url }}"></a>
                     </figure>
                 </article>
@@ -127,129 +102,6 @@
     </div>
 </section>
 
-<section class="section why-us" data-section="section2">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-heading">
-                    <h2>Почему выбирают нас?</h2>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div id='tabs'>
-                    <ul>
-                        <li><a href='#tabs-1'>{{ why_choose_us.0.title }}</a></li>
-                        <li><a href='#tabs-2'>{{ why_choose_us.1.title }}</a></li>
-                        <li><a href='#tabs-3'>{{ why_choose_us.2.title }}</a></li>
-                    </ul>
-                    <section class='tabs-content'>
-                        <article id='tabs-1'>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="{{ why_choose_us.0.image3.url }}" alt="">
-                                </div>
-                                <div class="col-md-6">
-                                    <h4>{{ why_choose_us.0.title }}</h4>
-                                    <p>{{ why_choose_us.0.description }}</p>
-                                </div>
-                            </div>
-                        </article>
-                        <article id='tabs-2'>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="{{ why_choose_us.2.image3.url }}" alt="">
-                                </div>
-                                <div class="col-md-6">
-                                    <h4>{{ why_choose_us.1.title }}</h4>
-                                    <p>{{ why_choose_us.1.description }}</p>
-                                </div>
-                            </div>
-                        </article>
-                        <article id='tabs-3'>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="{{ why_choose_us.2.image2.url }}" alt="">
-                                </div>
-                                <div class="col-md-6">
-                                    <h4>{{ why_choose_us.2.title }}</h4>
-                                    <p>{{ why_choose_us.2.description }}</p>
-                                </div>
-                            </div>
-                        </article>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--  <section class="section coming-soon" data-section="section3">-->
-<!--    <div class="container">-->
-<!--      <div class="row">-->
-<!--        <div class="col-md-7 col-xs-12">-->
-<!--          <div class="continer centerIt">-->
-<!--            <div>-->
-<!--              <h4>Take <em>any online course</em> and win $326 for your next class</h4>-->
-<!--              <div class="counter">-->
-
-<!--                <div class="days">-->
-<!--                  <div class="value">00</div>-->
-<!--                  <span>Days</span>-->
-<!--                </div>-->
-
-<!--                <div class="hours">-->
-<!--                  <div class="value">00</div>-->
-<!--                  <span>Hours</span>-->
-<!--                </div>-->
-
-<!--                <div class="minutes">-->
-<!--                  <div class="value">00</div>-->
-<!--                  <span>Minutes</span>-->
-<!--                </div>-->
-
-<!--                <div class="seconds">-->
-<!--                  <div class="value">00</div>-->
-<!--                  <span>Seconds</span>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="col-md-5">-->
-<!--          <div class="right-content">-->
-<!--            <div class="top-content">-->
-<!--              <h6>Register your free account and <em>get immediate</em> access to online courses</h6>-->
-<!--            </div>-->
-<!--            <form id="contact" action="" method="get">-->
-<!--              <div class="row">-->
-<!--                <div class="col-md-12">-->
-<!--                  <fieldset>-->
-<!--                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">-->
-<!--                  </fieldset>-->
-<!--                </div>-->
-<!--                <div class="col-md-12">-->
-<!--                  <fieldset>-->
-<!--                    <input name="email" type="text" class="form-control" id="email" placeholder="Your Email" required="">-->
-<!--                  </fieldset>-->
-<!--                </div>-->
-<!--                <div class="col-md-12">-->
-<!--                  <fieldset>-->
-<!--                    <input name="phone-number" type="text" class="form-control" id="phone-number" placeholder="Your Phone Number" required="">-->
-<!--                  </fieldset>-->
-<!--                </div>-->
-<!--                <div class="col-md-12">-->
-<!--                  <fieldset>-->
-<!--                    <button type="submit" id="form-submit" class="button">Get it now</button>-->
-<!--                  </fieldset>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </form>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </section>-->
 
 <section class="section courses" data-section="section4">
     <div class="container-fluid">
@@ -259,63 +111,22 @@
                     <h2>Наши услуги</h2>
                 </div>
             </div>
-            <div class="owl-carousel owl-theme item">
-                <!--          <div class="item">-->
-                <!--            <img src="{% static 'assets/images/courses-01.jpg' %}" alt="Course #1">-->
-                <!--            <div class="down-content">-->
-                <!--              <h4>Digital Marketing</h4>-->
-                <!--              <p>You can get free images and videos for your websites by visiting Unsplash, Pixabay, and Pexels.</p>-->
-                <!--              <div class="author-image">-->
-                <!--                <img src="{% static 'assets/images/author-01.png' %}" alt="Author 1">-->
-                <!--              </div>-->
-                <!--              <div class="text-button-pay">-->
-                <!--                <a href="#">Pay <i class="fa fa-angle-double-right"></i></a>-->
-                <!--              </div>-->
-                <!--            </div>-->
-                <!--          </div>-->
+            <div class="row">
                 {% for service in services %}
-<!--                <div class="item">-->
-                   <div>
-                        <img src="{{ service.image.url }}" alt="Course #2">
-                    <div class="down-content">
-                        <h6 style="font-weight: bold">{{ service.title }}</h6>
-                            {{ service.description|safe }}
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card service-card">
+                        <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
+                        <div class="card-body">
+                            <h6 class="card-title" style="font-weight: bold">{{ service.title }}</h6>
+                            <p class="card-text">{{ service.description|safe }}</p>
+                        </div>
                     </div>
-                   </div>
-<!--                    <div class="text-button-free">-->
-<!--                        <a href="https://t.me/luxecleaninguz_bot">Переход <i class="fa fa-angle-double-right"></i></a>-->
-<!--                    </div>-->
-                    {% endfor %}
-<!--                </div>-->
+                </div>
+                {% endfor %}
             </div>
         </div>
+    </div>
 </section>
-
-
-<!--<section class="section video" data-section="section5">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-6 align-self-center">-->
-<!--                <div class="left- content" ,>-->
-<!--                    <h3 style="color: #f5a425; border: #0b0b0b">{{ abouts.title }}</h3>-->
-<!--                    <p style="color: white; line-height: 30px">{{ abouts.description|safe }}</p>-->
-<!--                    <br>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-6">-->
-<!--                <article class="video-item">-->
-<!--                    <figure>-->
-<!--                        <a href="#" class="plays"><img-->
-<!--                                src="{{ abouts.image.url }}"></a>-->
-<!--                    </figure>-->
-<!--                </article>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--    </div>-->
-<!--    </div>-->
-<!--</section>-->
 
 <section class="section contact" data-section="section6">
     <div class="container">
@@ -371,64 +182,64 @@
 </section>
 
 <footer>
-                        <h5 style="color: #f5a425;">Контакты</h5>
-                    {% if footer.address %}
-                    <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
-                    {% endif %}
-                    {% if footer.phone1 %}
-                    <h6 style="color: white;">Telefon nomer: {{ footer.phone1 }}</h6>
-                    {% endif %}
-                    {% if footer.phone2 %}
-                    <h6 style="color: white;">Telefon nomer: {{ footer.phone2 }}</h6>
-                    {% endif %}
-                    {% if footer.email %}
-                    <h6 style="color: white;">Email: {{ footer.email }}</h6>
-                    {% endif %}
-                    <div class="social-icons" style="margin-top: 30px;">
-                        <h5 style="color: #f5a425;">Социальные сети</h5>
-                        {% if footer.facebook %}
-                        <a href="{{ footer.facebook }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.instagram %}
-                        <a href="{{ footer.instagram }}" target="_blank"
-                           style="color: white; margin-right: 10px;font-size: 30px;">
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.linkedin %}
-                        <a href="{{ footer.linkedin }}" target="_blank"
-                           style="color: white; margin-right: 10px;font-size: 30px;">
-                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.twitter %}
-                        <a href="{{ footer.twitter }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.telegram %}
-                        <a href="{{ footer.telegram }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.youtube %}
-                        <a href="{{ footer.youtube }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-youtube" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                        {% if footer.whatsapp %}
-                        <a href="{{ footer.whatsapp }}" target="_blank"
-                           style="color: white; margin-right: 10px; font-size: 30px;">
-                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                        </a>
-                        {% endif %}
-                    </div>
+    <h5 style="color: #f5a425;">Контакты</h5>
+    {% if footer.address %}
+    <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
+    {% endif %}
+    {% if footer.phone1 %}
+    <h6 style="color: white;">Telefon nomer: {{ footer.phone1 }}</h6>
+    {% endif %}
+    {% if footer.phone2 %}
+    <h6 style="color: white;">Telefon nomer: {{ footer.phone2 }}</h6>
+    {% endif %}
+    {% if footer.email %}
+    <h6 style="color: white;">Email: {{ footer.email }}</h6>
+    {% endif %}
+    <div class="social-icons" style="margin-top: 30px;">
+        <h5 style="color: #f5a425;">Социальные сети</h5>
+        {% if footer.facebook %}
+        <a href="{{ footer.facebook }}" target="_blank"
+           style="color: white; margin-right: 10px; font-size: 30px;">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if footer.instagram %}
+        <a href="{{ footer.instagram }}" target="_blank"
+           style="color: white; margin-right: 10px;font-size: 30px;">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if footer.linkedin %}
+        <a href="{{ footer.linkedin }}" target="_blank"
+           style="color: white; margin-right: 10px;font-size: 30px;">
+            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if footer.twitter %}
+        <a href="{{ footer.twitter }}" target="_blank"
+           style="color: white; margin-right: 10px; font-size: 30px;">
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if footer.telegram %}
+        <a href="{{ footer.telegram }}" target="_blank"
+           style="color: white; margin-right: 10px; font-size: 30px;">
+            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if footer.youtube %}
+        <a href="{{ footer.youtube }}" target="_blank"
+           style="color: white; margin-right: 10px; font-size: 30px;">
+            <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+        {% if footer.whatsapp %}
+        <a href="{{ footer.whatsapp }}" target="_blank"
+           style="color: white; margin-right: 10px; font-size: 30px;">
+            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -453,6 +264,20 @@
 <script src="{% static 'assets/js/slick-slider.js' %}"></script>
 <script src="{% static 'assets/js/custom.js' %}"></script>
 <script>
+
+    document.querySelectorAll('.features-post').forEach(item => {
+    item.addEventListener('mouseenter', event => {
+        const content = item.querySelector('.features-content');
+        content.classList.add('hover'); // Add a class to indicate hover
+    });
+
+    item.addEventListener('mouseleave', event => {
+        const content = item.querySelector('.features-content');
+        content.classList.remove('hover'); // Remove the hover class
+    });
+});
+
+
     //according to loftblog tut
     $('.nav li:first').addClass('active');
 
