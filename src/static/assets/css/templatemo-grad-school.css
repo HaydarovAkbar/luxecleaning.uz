@@ -193,7 +193,9 @@ a.menu-link {
 }
 
 .main-header {
-    background-color: #547878;
+    background-color: #fff;
+    /*background: rgb(175, 108, 245);*/
+    /*background: linear-gradient(90deg, rgba(175, 108, 245, 1) 0%, rgba(223, 127, 185, 1) 100%);*/
     height: 80px;
     position: fixed;
     z-index: 12;
@@ -340,7 +342,7 @@ a.menu-link {
 
 .video-overlay {
     position: absolute;
-    /*background-color: rgba(22, 34, 57, 0.85);*/        /* Dark overlay dashboard */
+    background-color: rgba(22, 34, 57, 0.85); /* Dark overlay dashboard */
     top: 0;
     left: 0;
     bottom: 7px;
