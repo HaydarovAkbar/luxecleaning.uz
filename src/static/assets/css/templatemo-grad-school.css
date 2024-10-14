@@ -53,9 +53,9 @@ p {
 .section-heading h2 {
     margin-top: 100px;
     position: relative;
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 500;
-    color: #fff;
+    color: #555;
     letter-spacing: 0.5px;
     display: inline-block;
     padding: 15px 20px;
@@ -66,7 +66,7 @@ p {
 /* Buttons */
 
 .main-button a {
-    background-color: #769fff;
+    background-color: #009FBD;
     color: #fff;
     font-size: 13px;
     text-transform: uppercase;
@@ -193,7 +193,7 @@ a.menu-link {
 }
 
 .main-header {
-    background-color: #fff;
+    background-color: #F8F8F8;
     /*background: rgb(175, 108, 245);*/
     /*background: linear-gradient(90deg, rgba(175, 108, 245, 1) 0%, rgba(223, 127, 185, 1) 100%);*/
     height: 80px;
@@ -243,7 +243,7 @@ a.menu-link {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 700;
-    color: #fff;
+    color: #009FBD;
     border: 2px solid transparent;
     transition: all 0.5s;
 }
@@ -306,7 +306,8 @@ a.menu-link {
 
 .main-nav li:hover a,
 .main-nav li.active a {
-    border: 2px solid #769fff;
+    border: 1px solid #009FBD;
+    border-radius: 4px;
 }
 
 @media (max-width: 950px) {
@@ -319,6 +320,28 @@ a.menu-link {
 
 
 /* Slider */
+.main-banner {
+    background-image: url(../images/woman-cleaning2.jpg);
+    background-size: cover;  /* Makes the background image cover the entire section */
+    background-position: center;  /* Centers the background image */
+    height: 100vh;  /* Sets the height to 100% of the viewport height */
+    position: relative;  /* Allows for absolute positioning of child elements */
+    padding-top: 150px; /* Adjust this value to move the image lower */
+}
+
+.video-overlay {
+    position: absolute;  /* Position the overlay absolutely */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;  /* Centers content vertically */
+    justify-content: center;  /* Centers content horizontally */
+    color: white;  /* Adjust text color for better visibility */
+    text-align: center;  /* Center text alignment */
+}
+
 
 .main-banner {
     position: relative;
@@ -342,7 +365,7 @@ a.menu-link {
 
 .video-overlay {
     position: absolute;
-    background-color: rgba(22, 34, 57, 0.85); /* Dark overlay dashboard */
+    background-color: rgba(0,0,0, 0.5); /* Dark overlay dashboard */
     top: 0;
     left: 0;
     bottom: 7px;
@@ -375,11 +398,13 @@ a.menu-link {
     font-weight: 800;
     color: #fff;
     letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(225, 225, 225, 0.5);
 }
 
 .main-banner .caption h2 em {
     font-style: normal;
-    color: #769fff;
+    /*color: #009FBD;*/
+    color: red;
     font-weight: 900;
 }
 
@@ -407,51 +432,51 @@ a.menu-link {
 
 }
 
-/* Features new */
+/*!* Features new *!*/
 
-.features-post {
-    perspective: 1000px; /* Create perspective for 3D effect */
-}
+/*.features-post {*/
+/*    perspective: 1000px; !* Create perspective for 3D effect *!*/
+/*}*/
 
-.features-content {
-    background-color: #ffffff; /* Background color for the card */
-    padding: 20px; /* Padding inside the card */
-    border-radius: 10px; /* Rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
-    transform: rotateY(-5deg) rotateX(3deg); /* Initial slight tilt */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    position: relative; /* Position for absolute child elements */
-}
+/*.features-content {*/
+/*    background-color: #ffffff; !* Background color for the card *!*/
+/*    padding: 20px; !* Padding inside the card *!*/
+/*    border-radius: 10px; !* Rounded corners *!*/
+/*    transition: transform 0.3s ease, box-shadow 0.3s ease; !* Smooth transition for transform and shadow *!*/
+/*    transform: rotateY(-5deg) rotateX(3deg); !* Initial slight tilt *!*/
+/*    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); !* Shadow for depth *!*/
+/*    position: relative; !* Position for absolute child elements *!*/
+/*}*/
 
-/* Hover effect for the card */
-.features-post:hover .features-content {
-    transform: rotateY(5deg) rotateX(0deg); /* Increased tilt on hover */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
-}
+/*!* Hover effect for the card *!*/
+/*.features-post:hover .features-content {*/
+/*    transform: rotateY(5deg) rotateX(0deg); !* Increased tilt on hover *!*/
+/*    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); !* Increased shadow on hover *!*/
+/*}*/
 
-/* Show/hide content smoothly */
-.content-hide {
-    opacity: 0; /* Start hidden with 0 opacity */
-    transition: opacity 0.3s ease; /* Smooth transition for opacity */
-}
+/*!* Show/hide content smoothly *!*/
+/*.content-hide {*/
+/*    opacity: 0; !* Start hidden with 0 opacity *!*/
+/*    transition: opacity 0.3s ease; !* Smooth transition for opacity *!*/
+/*}*/
 
-.content-show {
-    opacity: 1; /* Show content with full opacity */
-    transition: opacity 0.3s ease; /* Smooth transition for opacity */
-}
+/*.content-show {*/
+/*    opacity: 1; !* Show content with full opacity *!*/
+/*    transition: opacity 0.3s ease; !* Smooth transition for opacity *!*/
+/*}*/
 
-/* Hover state to control visibility */
-.features-post:hover .content-show {
-    opacity: 0; /* Fade out on hover */
-    pointer-events: none; /* Prevent interactions */
-}
+/*!* Hover state to control visibility *!*/
+/*.features-post:hover .content-show {*/
+/*    opacity: 0; !* Fade out on hover *!*/
+/*    pointer-events: none; !* Prevent interactions *!*/
+/*}*/
 
-.features-post:hover .content-hide {
-    opacity: 1; /* Fade in on hover */
-    pointer-events: auto; /* Allow interactions */
-}
+/*.features-post:hover .content-hide {*/
+/*    opacity: 1; !* Fade in on hover *!*/
+/*    pointer-events: auto; !* Allow interactions *!*/
+/*}*/
 
-/* end Features new */
+/*!* end Features new *!*/
 
 /*!* Features *!*/
 
@@ -476,16 +501,17 @@ section.features .col-4 {
 
 .features-content {
     position: absolute;
-    bottom: 0;
+    bottom: 60px;
     left: 0;
     width: 100%;
-    background-color: #0c1228;
+    background-color: #009FBD;
     color: #fff;
     padding: 40px;
+    border-radius: 8px ;
 }
 
 .features-content:hover {
-    background-color: #769fff;
+    /*background-color: #769fff;*/
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -600,6 +626,7 @@ section.courses .owl-carousel button.active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 520px;
 }
 
 /* Image styling */
@@ -662,10 +689,10 @@ section.courses .item:hover {
 
 
 section.courses {
-    background-image: url(../images/choosing-bg.jpg);
+    /*background-image: url(../images/choosing-bg.jpg);*/
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #172238;
+    background-color: #F2F2F4 ;
     padding-bottom: 100px;
     padding: 0px 30px 100px 30px;
 }
@@ -768,20 +795,24 @@ section.courses .owl-carousel button.active {
 
 /* Tilting the map card */
 .section.contact .col-md-6:last-child {
-    transform: rotate(2deg); /* Slight tilt for the map */
+    /*transform: rotate(2deg); !* Slight tilt for the map *!*/
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Adding a shadow for 3D effect */
     border-radius: 10px;
     overflow: hidden; /* Ensure content doesn't spill out */
 }
 
 /* Map iframe styling */
-#map iframe {
-    border-radius: 10px;
-    transform: rotate(0deg); /* Keep map content straight */
-    width: 100%;
-    height: 422px;
-    border: 0;
-}
+/*#map iframe {*/
+/*    border-radius: 10px;*/
+/*    transform: rotate(0deg); !* Keep map content straight *!*/
+/*    width: 100%;*/
+/*    height: 422px;*/
+/*    border: 0;*/
+/*}*/
+
+/*.contact-box{*/
+/*    background-color: #ECF2FE;*/
+/*}*/
 
 #name::placeholder {
     color: #000; /* Black placeholder color */
@@ -816,6 +847,9 @@ section.courses .owl-carousel button.active {
 }
 
 /* Ensure all inputs look similar with the same box-shadow and padding */
+#contact{
+    background-color: #ECF2FE;
+}
 #contact input#name,
 #contact input#phone,
 #contact textarea#message {
@@ -859,7 +893,7 @@ button.button:hover {
 .section.video {
     position: relative;
     padding: 60px 0;
-    background-color: #172238; /* Dark background color */
+    background-color: #F8F8F8; /* Dark background color */
 }
 
 /* Left content styling (title and description) */
@@ -876,9 +910,9 @@ button.button:hover {
 }
 
 /* Title styling */
-.section.video .left-content h3 {
-    color: #769fff; /* Orange title color */
-    border-bottom: 2px solid #769fff;
+.section.video h3 {
+    color: #009FBD; /* Orange title color */
+    /*border-bottom: 2px solid #769fff;*/
     font-size: 28px;
     padding-bottom: 10px;
 }
@@ -1386,10 +1420,10 @@ img.mfp-img {
 /* Contact */
 
 section.contact {
-    background-image: url(../images/contact-bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #172238;
+    /*background-image: url(../images/contact-bg.jpg);*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    background-color: #fff;
     padding-bottom: 120px;
 }
 
@@ -1485,8 +1519,9 @@ section.contact form button {
 /* Footer */
 
 footer {
-    background-color: #152036;
+    background-color: #777778;
     text-align: center;
+    padding: 20px;
 }
 
 footer p {
@@ -1501,7 +1536,7 @@ footer p {
 
 footer p a,
 footer p a:hover {
-    color: #769fff;
+    color: red;
 }
 
 @media screen and (max-width: 992px) {
