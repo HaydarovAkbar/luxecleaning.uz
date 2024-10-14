@@ -19,53 +19,55 @@
     <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 
-<header class="main-header clearfix" role="header">
+<header class="main-header" role="header">
     <div class="logo">
-        <img style="width: 200px; height: auto; color: yellow; margin-top: -10px;" src="{% static 'luxe_cleaning_logo.svg' %}">
+        <img style="width: 200px; height: auto; margin-top: -10px;"
+             src="{% static 'luxe_cleaning_logo.svg' %}">
     </div>
-<!--    <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>-->
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
+
+            <a style="width: 200px; height: auto; background-color: #00FF00; border-radius: 10px; padding: 10px; font-size: 20px;"
+               href="tel:{{ footer.phone2 }}"><i
+                    class="header-fa-phone"></i> {{ footer.phone2 }}</a>
             <li><a href="#section1">Главная</a></li>
             <li><a href="#section6">Контакт</a></li>
         </ul>
     </nav>
 </header>
 
-{#<!-- ***** Main Banner Area Start ***** -->#}
-{#<section class="section main-banner" id="top" data-section="section1">#}
-{#    <video autoplay muted loop id="bg-video">#}
-{#        <source src="{% static 'assets/images/cleaning-video.mp4' %}" type="video/mp4"/>#}
-{#    </video>#}
-{##}
-{#    <div class="video-overlay header-text">#}
-{#        <div class="caption">#}
-{#            <h2><em>Luxe Cleaning</em> Качественная уборка для вашего комфорта!</h2>#}
-{#            <!-- <h6>Мы стараемся сделать качественную уборку дома и уложиться в один день по времени</h6> -->#}
-{#            <!--            <div class="main-button">-->#}
-{#            <!--                <div class="scroll-to-section"><a href="https://t.me/luxecleaninguz_bot">Подключение</a></div>-->#}
-{#            <!--            </div>-->#}
-{#        </div>#}
-{#    </div>#}
-{#</section>#}
-
 <!-- ***** Main Banner Area Start ***** -->
+
 <section class="section main-banner" id="top" data-section="section1">
+    <video autoplay muted loop id="bg-video">
+        <source src="{% static 'assets/images/cleaning-video.mp4' %}" type="video/mp4"/>
+    </video>
     <div class="video-overlay header-text">
+
         <div class="caption">
             <h2><em>Luxe Cleaning</em> Качественная уборка для вашего комфорта!</h2>
-            <!-- Uncomment if needed -->
-            <!-- <h6>Мы стараемся сделать качественную уборку дома и уложиться в один день по времени</h6> -->
-            <!-- <div class="main-button">-->
-            <!--     <div class="scroll-to-section"><a href="https://t.me/luxecleaninguz_bot">Подключение</a></div>-->
-            <!-- </div> -->
         </div>
     </div>
 </section>
+
+<!-- ***** Main Banner Area Start ***** 'css 332 qator'-->
+<!--<section class="section main-banner" id="top" data-section="section1">-->
+<!--    <div class="video-overlay header-text">-->
+<!--        <div class="caption">-->
+<!--            <h2><em> < Luxe Cleaning ></em> Чистота без компромиссов!</h2>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 
 <!-- ***** Main Banner Area End ***** -->
@@ -95,6 +97,11 @@
 <section class="section video" data-section="section5">
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>О нас</h2>
+                </div>
+            </div>
             <div class="col-md-6 align-self-center">
                 <div class="left- content" ,>
                     <h3>{{ abouts.title }}</h3>
@@ -139,16 +146,56 @@
                 </div>
                 {% endfor %}
             </div>
+            <div>
+                <h6>
+                    Указанные суммы не являются окончательной и публичной офертой. Точную сумму и информацию уточняйте
+                    по номеру телефона <em style="background-color: #00FF00">+998 77 114 3555.</em>
+                </h6>
+            </div>
+        </div>
+</section>
+
+
+<section class="section faq" data-section="section3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Вопросы и ответы</h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="accordion">
+                    {% for faq in faqs %}
+                    <div class="card">
+                        <div class="card-header" id="heading{{ faq.id }}">
+                            <h5 class="mb-0 d-flex justify-content-between align-items-center">
+                                <a class="question">
+                                    {{ faq.question }}
+                                </a>
+                                <span class="toggle-icon">&#x25BC;</span>
+                            </h5>
+                        </div>
+                        <div id="collapse{{ faq.id }}" class="collapse-content">
+                            <div class="card-body">
+                                <p class="card-text">{{ faq.answer|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 
 <section class="section contact" data-section="section6">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <h2>Давайте поддерживать связь</h2>
+                    <h2>Отправьте нам сообщение</h2>
                 </div>
             </div>
             <div class="col-md-6 ">
@@ -178,7 +225,8 @@
                         </div>
                         <div class="col-md-12">
                             <fieldset>
-                                <button style="background-color: #009FBD" type="submit" id="form-submit" class="button">Отправить сообщение сейчас
+                                <button style="background-color: #009FBD" type="submit" id="form-submit" class="button">
+                                    Отправить сообщение сейчас
                                 </button>
                             </fieldset>
                         </div>
@@ -279,18 +327,39 @@
 <script src="{% static 'assets/js/slick-slider.js' %}"></script>
 <script src="{% static 'assets/js/custom.js' %}"></script>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const headers = document.querySelectorAll(".card-header");
+
+        headers.forEach(header => {
+            header.addEventListener("mouseenter", toggleAnswer);  // On hover
+            header.addEventListener("focus", toggleAnswer);  // On focus (keyboard)
+
+            header.addEventListener("mouseleave", closeAnswer);  // Close on mouse leave
+        });
+
+        function toggleAnswer(event) {
+            const content = this.nextElementSibling;
+            content.style.height = content.scrollHeight + "px";
+        }
+
+        function closeAnswer(event) {
+            const content = this.nextElementSibling;
+            content.style.height = "0";
+        }
+    });
+
 
     document.querySelectorAll('.features-post').forEach(item => {
-    item.addEventListener('mouseenter', event => {
-        const content = item.querySelector('.features-content');
-        content.classList.add('hover'); // Add a class to indicate hover
-    });
+        item.addEventListener('mouseenter', event => {
+            const content = item.querySelector('.features-content');
+            content.classList.add('hover'); // Add a class to indicate hover
+        });
 
-    item.addEventListener('mouseleave', event => {
-        const content = item.querySelector('.features-content');
-        content.classList.remove('hover'); // Remove the hover class
+        item.addEventListener('mouseleave', event => {
+            const content = item.querySelector('.features-content');
+            content.classList.remove('hover'); // Remove the hover class
+        });
     });
-});
 
 
     //according to loftblog tut

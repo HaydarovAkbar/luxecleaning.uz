@@ -38,6 +38,21 @@ class DashboardCategory(models.Model):
         db_table = 'dashboard_category'
 
 
+class FAQ(models.Model):
+    question = models.CharField(max_length=500, null=True, blank=True)
+    answer = models.TextField(null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.question
+
+    class Meta:
+        verbose_name = 'FAQ'
+        verbose_name_plural = 'FAQs'
+        db_table = 'faq'
+
+
 class About(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)

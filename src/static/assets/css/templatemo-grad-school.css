@@ -1,10 +1,10 @@
-/*@import url(fontawesome.css);*/
-/*@import url("<link href="*/
-/*https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900  */
-/*" rel="*/
-/*stylesheet*/
-/*">"*/
-/*)*/
+@import url(fontawesome.css);
+@import url("<link href="
+https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900
+" rel="
+stylesheet
+">"
+)
 ;
 body {
     font-family: 'Montserrat', sans-serif;
@@ -42,7 +42,8 @@ p {
 .section-heading h2:before {
     width: 1px;
     height: 100px;
-    background-color: rgba(250, 250, 250, 0.1);
+    /*background-color: rgba(250, 250, 250, 0.1);*/
+    background-color: #009FBD;
     position: absolute;
     top: -102px;
     content: '';
@@ -55,7 +56,7 @@ p {
     position: relative;
     font-size: 26px;
     font-weight: 500;
-    color: #555;
+    background-color: #009FBD;
     letter-spacing: 0.5px;
     display: inline-block;
     padding: 15px 20px;
@@ -209,6 +210,7 @@ a.menu-link {
     padding-left: 60px;
 }
 
+
 .main-header .logo a {
     font-size: 36px;
     text-transform: uppercase;
@@ -220,6 +222,13 @@ a.menu-link {
     font-style: normal;
     color: #769fff;
 }
+
+.main-header .main-nav .header-fa-phone {
+    font-size: 16px;
+    color: red;
+    margin-right: 5px;
+}
+
 
 .main-menu {
     float: right;
@@ -321,12 +330,12 @@ a.menu-link {
 
 /* Slider */
 .main-banner {
-    background-image: url(../images/woman-cleaning2.jpg);
+    /*background-image: url(../images/woman-cleaning2.jpg);*/
     background-size: cover;  /* Makes the background image cover the entire section */
     background-position: center;  /* Centers the background image */
     height: 100vh;  /* Sets the height to 100% of the viewport height */
     position: relative;  /* Allows for absolute positioning of child elements */
-    padding-top: 150px; /* Adjust this value to move the image lower */
+    /*padding-top: 150px; !* Adjust this value to move the image lower *!*/
 }
 
 .video-overlay {
@@ -500,8 +509,8 @@ section.features .col-4 {
 }
 
 .features-content {
-    position: absolute;
-    bottom: 60px;
+    position: relative;
+    bottom: 160px;
     left: 0;
     width: 100%;
     background-color: #009FBD;
@@ -626,7 +635,7 @@ section.courses .owl-carousel button.active {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 520px;
+    min-height: 420px;
 }
 
 /* Image styling */
@@ -1132,6 +1141,80 @@ button::-moz-focus-inner {
     font-family: Arial, Baskerville, monospace;
 }
 
+
+/* section3 FAQ */
+
+/* General Styling */
+.section.faq {
+    background: linear-gradient(to bottom right, #f0f4f8, #d9e8ff);
+    padding: 50px 0;
+}
+
+.section-heading h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #5a5a5a;
+    font-weight: 700;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card-header:hover {
+    background-color: #f1f1f1;
+}
+
+.card-header a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #6d4cff;
+    font-weight: 600;
+}
+
+.toggle-icon {
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+/* Collapse Content */
+.collapse-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+.card-header:hover + .collapse-content {
+    height: auto; /* Expands to fit the content */
+}
+
+/* Optional: Rotate Icon */
+.card-header:hover .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.collapse-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.7s ease-in-out;
+}
+
+
+/* end section3 FAQ */
+
+
+
 .mfp-close:hover,
 .mfp-close:focus {
     opacity: 1;
@@ -1502,19 +1585,19 @@ section.contact form textarea::placeholder {
     color: #fff;
 }
 
-section.contact form button {
-    background-color: #769fff;
-    color: #fff;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 700;
-    padding: 12px 20px;
-    display: inline-block;
-    outline: none;
-    box-shadow: none;
-    border: none;
-}
+/*section.contact form button {*/
+/*    background-color: #00FF00;*/
+/*    color: #fff;*/
+/*    font-size: 13px;*/
+/*    text-transform: uppercase;*/
+/*    letter-spacing: 0.5px;*/
+/*    font-weight: 700;*/
+/*    padding: 12px 20px;*/
+/*    display: inline-block;*/
+/*    outline: none;*/
+/*    box-shadow: none;*/
+/*    border: none;*/
+/*}*/
 
 /* Footer */
 
@@ -1536,7 +1619,7 @@ footer p {
 
 footer p a,
 footer p a:hover {
-    color: red;
+    color: #00FF00;
 }
 
 @media screen and (max-width: 992px) {

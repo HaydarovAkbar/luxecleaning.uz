@@ -10,7 +10,7 @@ import json
 from django.views import View
 
 
-from .models import Dashboard, DashboardCategory, About, Services, WhyChooseUs, Footer, TgUsers
+from .models import Dashboard, DashboardCategory, About, Services, WhyChooseUs, Footer, TgUsers, FAQ
 
 
 def index(request):
@@ -20,6 +20,7 @@ def index(request):
     services = Services.objects.all()
     why_choose_us = WhyChooseUs.objects.all()
     footer = Footer.objects.all().first()
+    faqs = FAQ.objects.all()
     data = {
         'dashboards': dashboards,
         'categories': dashboard_categories,
@@ -27,6 +28,7 @@ def index(request):
         'services': services,
         'why_choose_us': why_choose_us,
         'footer': footer,
+        'faqs': faqs,
     }
     return render(request, 'index.html', data)
 
