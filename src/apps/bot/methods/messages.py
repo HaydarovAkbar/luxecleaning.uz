@@ -1,8 +1,8 @@
 from types import SimpleNamespace
+from apps.models import Footer
 
 
 class Messages(SimpleNamespace):
-
     numbers = {
         '1': '1️⃣',
         '2': '2️⃣',
@@ -58,12 +58,6 @@ class Messages(SimpleNamespace):
         'uz': 'Biz haqimizda bo\'limi',
         'ru': 'Раздел о нас',
         'en': 'About us section'
-    }
-
-    contact = {
-        'uz': 'Aloqa bo\'limi',
-        'ru': 'Раздел контактов',
-        'en': 'Contacts section'
     }
 
     settings = {
@@ -170,3 +164,53 @@ Eng yaxshi ezgu tilaklar bilan,<code> Luxe Cleaning</code>
 С наилучшими пожеланиями, <code>Luxe Cleaning</code>
 """
     }
+
+    @staticmethod
+    def get_contact_msg_uz(footer: Footer):
+        get_location = lambda: f"https://www.google.com/maps/@{footer.longitude},{footer.latitude},13z?hl=en-US&entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D" if footer.longitude and footer.latitude else ""
+
+        phone1 = "📞 Telefon: " + (footer.phone1 if footer.phone1 else "") + "\n"
+        phone2 = "📞 Telefon: " + (footer.phone2 if footer.phone2 else "") + "\n"
+        email = ("📧 Elektron pochta: " + footer.email if footer.email else "") + "\n"
+        location = ("📍 Joylashuv: " + "<a href='{}'>Xarita</a>".format(get_location()) if get_location() else "")
+        telegram = ("<a href='{}'>📱 Telegram</a>".format(footer.telegram) if footer.telegram else "") + "\n"
+        instagram = ("<a href='{}'>📷 Instagram</a>".format(footer.instagram) if footer.instagram else "") + "\n"
+        youtube = ("<a href='{}'>📺 YouTube</a>".format(footer.youtube) if footer.youtube else "") + "\n"
+        facebook = ("<a href='{}'>📘 Facebook</a>".format(footer.facebook) if footer.facebook else "") + "\n"
+
+        return f"""
+<b>Bizga murojaat qilganingiz uchun tashakkur!</b>
+    
+Biz bilan quyidagi kanallardan biri orqali bog'lanishingiz mumkin:
+    
+{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}{location}
+🌐 Veb-sayt: luxecleaning.uz
+O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo'lamiz!
+    
+Eng yaxshi ezgu tilaklar bilan, <code>Luxe Cleaning</code>
+    """
+
+    @staticmethod
+    def get_contact_msg_ru(footer: Footer):
+        get_location = lambda: f"https://www.google.com/maps/@{footer.longitude},{footer.latitude},13z?hl=en-US&entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D" if footer.longitude and footer.latitude else ""
+
+        phone1 = "📞 Телефон: " + (footer.phone1 if footer.phone1 else "") + "\n"
+        phone2 = "📞 Телефон: " + (footer.phone2 if footer.phone2 else "") + "\n"
+        email = ("📧 Электронная почта: " + footer.email if footer.email else "") + "\n"
+        location = ("📍 Местонахождение: " + "<a href='{}'>Карта</a>".format(get_location()) if get_location() else "")
+        telegram = ("<a href='{}'>📱 Telegram</a>".format(footer.telegram) if footer.telegram else "") + "\n"
+        instagram = ("<a href='{}'>📷 Instagram</a>".format(footer.instagram) if footer.instagram else "") + "\n"
+        youtube = ("<a href='{}'>📺 YouTube</a>".format(footer.youtube) if footer.youtube else "") + "\n"
+        facebook = ("<a href='{}'>📘 Facebook</a>".format(footer.facebook) if footer.facebook else "") + "\n"
+
+        return f"""
+<b>Спасибо, что обратились к нам!</b>
+
+Вы можете связаться с нами по одному из следующих каналов:
+
+{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}{location}
+🌐 Сайт: luxecleaning.uz
+Выбирайте наиболее удобный для вас способ и мы будем рады вам помочь!
+
+С наилучшими пожеланиями, <code>Luxe Cleaning</code>
+            """
