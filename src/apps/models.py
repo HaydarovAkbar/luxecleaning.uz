@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import RegexValidator
+from django.utils import timezone
 
 
 class Dashboard(models.Model):
@@ -39,8 +40,11 @@ class DashboardCategory(models.Model):
 
 
 class FAQ(models.Model):
-    question = models.CharField(max_length=500, null=True, blank=True)
-    answer = models.TextField(null=True, blank=True)
+    question = models.CharField(verbose_name='question ru', max_length=500, null=True, blank=True)
+    answer = models.TextField(verbose_name='answer ru', null=True, blank=True)
+
+    question_uz = models.CharField(max_length=500, null=True, blank=True)
+    answer_uz = models.TextField(null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -163,7 +167,7 @@ class TgUsers(models.Model):
                                     validators=[
                                         RegexValidator(
                                             regex=r'^\+998\d{9}$',  # Example regex for international phone numbers
-                                            message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
+                                            message="Phone number must be entered in the format: '+999999999'. Up to 13 digits allowed."
                                         )
                                     ],
                                     null=True, blank=True)
@@ -178,6 +182,12 @@ class TgUsers(models.Model):
     def __str__(self):
         return self.username
 
+    def get_full_name(self):
+        return f'{self.first_name} {self.last_name}'
+
+    def get_created_at(self):
+        return self.created_at.strftime('%Y-%m-%d %H:%M:%S')
+
     class Meta:
         verbose_name = 'Telegram User'
         verbose_name_plural = 'Telegram Users'
@@ -187,3 +197,99 @@ class TgUsers(models.Model):
             models.Index(fields=['username'], name='username_idx'),
             models.Index(fields=['phone_number'], name='phone_number_idx'),
         ]
+
+
+class TgServices(models.Model):
+    title_uz = models.CharField(max_length=355, null=True, blank=True)
+    title_ru = models.CharField(max_length=355, null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return self.title_uz
+
+    def save(self, *args, **kwargs):
+        self.updated_at = timezone.now()
+        return super(TgServices, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Tg Xizmat'
+        verbose_name_plural = 'Tg Xizmatlari'
+        db_table = 'tg_services'
+
+
+class TgServicesPrice(models.Model):
+    service = models.ForeignKey(TgServices, on_delete=models.SET_NULL, null=True)
+
+    size_uz = models.CharField(max_length=255, null=True, blank=True)
+    daily_price_uz = models.CharField(max_length=255, null=True, blank=True)
+    monthly_price_uz = models.CharField(max_length=255, null=True, blank=True)
+
+    size_ru = models.CharField(max_length=255, null=True, blank=True)
+    daily_price_ru = models.CharField(max_length=255, null=True, blank=True)
+    monthly_price_ru = models.CharField(max_length=255, null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return self.service.title_uz
+
+    def save(self, *args, **kwargs):
+        self.updated_at = timezone.now()
+        return super(TgServicesPrice, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Tg Xizmat Narxi'
+        verbose_name_plural = 'Tg Xizmat Narxlari'
+        db_table = 'tg_services_price'
+
+
+class Orders(models.Model):
+    _panding = 'pending'
+    _completed = 'completed'
+    _canceled = 'canceled'
+    ORDER_STATUS = (
+        (_panding, _panding),
+        (_completed, _completed),
+        (_canceled, _canceled),
+    )
+
+    user = models.ForeignKey(TgUsers, on_delete=models.CASCADE)
+    service = models.ForeignKey(TgServices, on_delete=models.SET_NULL, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+
+    status = models.CharField(max_length=30, choices=ORDER_STATUS, default=_panding)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user.username
+
+    def save(self, *args, **kwargs):
+        self.update_at = timezone.now()
+        return super(Orders, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Order (Zakaz)'
+        verbose_name_plural = 'Orders (Zakazlar)'
+        db_table = 'orders'
+
+
+class Stock(models.Model):
+    title_uz = models.CharField(max_length=255, null=True, blank=True)
+    title_ru = models.CharField(max_length=255, null=True, blank=True)
+    description_uz = models.TextField(null=True, blank=True)
+    description_ru = models.TextField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title_uz
+
+    class Meta:
+        verbose_name = 'Chegirma'
+        verbose_name_plural = 'Chegirmalar'
+        db_table = 'stock'

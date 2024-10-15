@@ -212,7 +212,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # HOST = 'https://76cb-194-93-24-3.ngrok-free.app'
-HOST = 'https://20bd-185-139-138-136.ngrok-free.app'
+HOST = 'https://00fe-92-63-205-143.ngrok-free.app'
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -220,6 +220,7 @@ CSRF_TRUSTED_ORIGINS = [HOST]
 
 # Bot settings
 TOKEN = config("TOKEN")
+CHANNEL_ID = config("CHANNEL_ID")
 AXES_LOCKOUT_URL = HOST + '/lockout/'
 
 
