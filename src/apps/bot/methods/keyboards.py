@@ -24,7 +24,14 @@ class Keyboards:
         back_txt = msg().back.get(lang)
         keyboard = [KeyboardButton(kb_txt, request_contact=True)]
         return ReplyKeyboardMarkup([keyboard, [back_txt]], resize_keyboard=True)
-        # return ReplyKeyboardMarkup([keyboard], resize_keyboard=True)
+
+    @staticmethod
+    def phone_number_service(lang: str):
+        kb_txt = msg().send_phone_keyb.get(lang)
+        back_txt = msg().back.get(lang)
+        continue_txt = msg().continiue_msg.get(lang)
+        keyboard = [KeyboardButton(kb_txt, request_contact=True)]
+        return ReplyKeyboardMarkup([keyboard, [continue_txt], [back_txt]], resize_keyboard=True)
 
     @staticmethod
     def location():
@@ -49,5 +56,15 @@ class Keyboards:
         back_txt = msg().back.get(lang)
         reply_buttons = [
             [back_txt]
+        ]
+        return ReplyKeyboardMarkup(reply_buttons, resize_keyboard=True)
+
+    @staticmethod
+    def services(lang: str):
+        services = msg().use_service.get(lang)
+        back = msg().back.get(lang)
+        reply_buttons = [
+            [services],
+            [back]
         ]
         return ReplyKeyboardMarkup(reply_buttons, resize_keyboard=True)

@@ -27,6 +27,12 @@ class Messages(SimpleNamespace):
         'en': '⬅️ Back'
     }
 
+    continiue_msg = {
+        'uz': 'Davom etish ➡️',
+        'ru': 'Продолжить ➡️',
+        'en': 'Continue ➡️'
+    }
+
     base = {
         'uz': "Menyudan kerakli bo'limni tanlang: 👇",
         'ru': "Выберите нужный раздел из меню: 👇",
@@ -214,3 +220,43 @@ Eng yaxshi ezgu tilaklar bilan, <code>Luxe Cleaning</code>
 
 С наилучшими пожеланиями, <code>Luxe Cleaning</code>
             """
+
+    use_service = {
+        'uz': "Xizmatni buyurtma qilish ✅",
+        'ru': "Оформить заказ ✅",
+        'en': "Place an order ✅"
+    }
+
+    use_of_service_if_phone = {
+        'uz': """
+📝 <b>Xizmatni buyurtma qilish</b>
+
+Iltimos, telefon raqamingiz to'g'riligini tekshiring!
+
+☎️ Telefon raqam: {}
+
+Agar raqam to'g'ri bo'lsa, quyidagi tugmani bosing. Aks holda, raqamingizni qayta yuboring.
+""",
+        'ru': """
+📝 <b>Оформить заказ</b>
+        
+Пожалуйста, проверьте правильность вашего номера телефона!
+        
+☎️ Номер телефона: {}
+        
+Если номер верный, нажмите на кнопку ниже. В противном случае, отправьте свой номер еще раз.
+""",
+    }
+
+    use_of_service_if_not_phone = {
+        'uz': """
+📝 <b>Xizmatni buyurtma qilish</b>
+        
+Iltimos, telefon raqamingizni yuboring!
+""",
+        'ru': """
+📝 <b>Оформить заказ</b>
+        
+Пожалуйста, отправьте свой номер телефона!
+""",
+    }

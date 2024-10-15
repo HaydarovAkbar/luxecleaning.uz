@@ -12,3 +12,4 @@ class States(Enum):
     CHANGE_LANG = auto()
     CORPORATE_CLIENTS = auto()
     FAQ = auto()
+    SERVICE = auto()

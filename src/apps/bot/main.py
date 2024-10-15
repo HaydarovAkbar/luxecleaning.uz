@@ -3,8 +3,9 @@ from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters, Co
     CallbackQueryHandler
 from decouple import config
 from django.conf import settings
-from .methods.scripts import start, get_lang, help, services, about, contact, user_settings, change_lang, \
-    corporate_clients, get_corporate_phone, corporative_client_msg, discount, faq_and_connection
+from .methods.scripts import start, get_lang, help, services, contact, user_settings, change_lang, \
+    corporate_clients, get_corporate_phone, corporative_client_msg, discount, faq_and_connection, service_and_price, \
+    use_of_service
 from .methods.messages import Messages as msg
 import logging
 from .states import States as st
@@ -47,7 +48,7 @@ all_handler = ConversationHandler(
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[1] + ')$'),
                                      corporate_clients),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[2] + ')$'),
-                                     discount),
+                                     service_and_price),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[3] + ')$'),
                                      discount),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[4] + ')$'),
@@ -64,7 +65,7 @@ all_handler = ConversationHandler(
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[1] + ')$'),
                                      corporate_clients),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[2] + ')$'),
-                                     discount),
+                                     service_and_price),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[3] + ')$'),
                                      discount),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[4] + ')$'),
@@ -83,6 +84,13 @@ all_handler = ConversationHandler(
             MessageHandler(Filters.regex('^(' + msg().back.get('uz') + ')$'), start),
             MessageHandler(Filters.contact, get_corporate_phone),
             MessageHandler(Filters.text, corporative_client_msg),
+        ],
+        st.SERVICE: [
+            CommandHandler('start', start),
+            CommandHandler('help', help),
+            MessageHandler(Filters.regex('^(' + msg().back.get('ru') + ')$'), start),
+            MessageHandler(Filters.regex('^(' + msg().back.get('uz') + ')$'), start),
+            MessageHandler(Filters.text, use_of_service),
         ],
 
     },

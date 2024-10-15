@@ -183,10 +183,9 @@ def contact(update: Update, context: CallbackContext):
 ### End of contact methods ###
 
 
-### services methods ###
-def services(update: Update, context: CallbackContext):
+### Service and price methods ###
+def service_and_price(update: Update, context: CallbackContext):
     user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
-    # bot_msg = msg().services.get(user_db.lang)
     _service_ = TgServices.objects.all()
 
     service_pr = ""  # Initialize the service message
@@ -195,7 +194,6 @@ def services(update: Update, context: CallbackContext):
         for ser in _service_:
             # Add service title
             service_pr += "<code>{:^}</code>\n".format(ser.title_uz)
-            # service_pr += "{:<15} {:<32} {:<45}\n".format("Size", "Daily", "Monthly")
 
             # Accumulate prices per service
             for pr in TgServicesPrice.objects.filter(service=ser):
@@ -221,7 +219,6 @@ Eng yaxshi ezgu tilaklar bilan, <code>Luxe Cleaning</code>
         for ser in _service_:
             # Add service title
             service_pr += "<code>{:^}</code>\n".format(ser.title_ru)
-            # service_pr += "{:<15} {:<32} {:<45}\n".format("Size", "Daily", "Monthly")
 
             # Accumulate prices per service
             for pr in TgServicesPrice.objects.filter(service=ser):
@@ -246,3 +243,73 @@ Eng yaxshi ezgu tilaklar bilan, <code>Luxe Cleaning</code>
     # Send the reply with the formatted services list
     update.message.reply_html(bot_msg, reply_markup=kb.back(user_db.lang))
     return state.GET_MENU
+
+
+### services methods ###
+def services(update: Update, context: CallbackContext):
+    user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
+    _service_ = TgServices.objects.all()
+
+    service_pr = ""  # Initialize the service message
+
+    if user_db.lang == 'uz':
+        for ser in _service_:
+            # Add service title
+            service_pr += "<code>{:^}</code>\n".format(ser.title_uz)
+
+            # Accumulate prices per service
+            for pr in TgServicesPrice.objects.filter(service=ser):
+                service_pr += "{:<15} {:<25} {:<35}\n".format(
+                    pr.size_uz, pr.daily_price_uz, pr.monthly_price_uz
+                )
+            service_pr += "\n"  # Add space between services
+
+            # Final message with services list
+        bot_msg = """
+<b>Xizmatlarimizga qiziqish bildirganingiz uchun tashakkur!</b>
+
+Hozir biz taklif qilayotgan xizmatlar:
+<code>{:<4}      {:<15}        {:<25}</code>
+
+{}
+Qo'shimcha ma'lumot olish yoki xizmatni bron qilish uchun biz bilan bog'laning!
+
+Eng yaxshi ezgu tilaklar bilan, <code>Luxe Cleaning</code>
+            """.format("Turi", "bir martalik", "oyiga 10-20", service_pr)
+
+    else:  # Russian language version
+        for ser in _service_:
+            # Add service title
+            service_pr += "<code>{:^}</code>\n".format(ser.title_ru)
+
+            # Accumulate prices per service
+            for pr in TgServicesPrice.objects.filter(service=ser):
+                service_pr += "{:<15} {:<25} {:<35}\n".format(
+                    pr.size_ru, pr.daily_price_ru, pr.monthly_price_ru
+                )
+            service_pr += "\n"  # Add space between services
+
+            # Final message with services list
+        bot_msg = """
+<b>Спасибо за интерес к нашим услугам!</b>
+
+Услуги, которые мы предлагаем на данный момент:
+<code>{:<4} {:<15} {:<25}</code>
+
+{}
+Свяжитесь с нами для получения дополнительной информации или заказа услуги!
+
+С наилучшими пожеланиями, <code>Luxe Cleaning</code>
+""".format("Тип", "одну уборку", "10-20 за месяц", service_pr)
+
+    # Send the reply with the formatted services list
+    update.message.reply_html(bot_msg, reply_markup=kb.services(user_db.lang))
+    return state.SERVICE
+
+
+def use_of_service(update: Update, context: CallbackContext):
+    user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
+    bot_msg = msg().use_of_service_if_phone.get(user_db.lang).format(
+        user_db.phone_number) if user_db.phone_number else msg().use_of_service_if_not_phone.get(user_db.lang)
+    update.message.reply_html(bot_msg, reply_markup=kb.phone_number_service(user_db.lang))
+    return state.GET_PHONE
