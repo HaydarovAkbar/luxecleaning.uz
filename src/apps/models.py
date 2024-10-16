@@ -34,8 +34,8 @@ class DashboardCategory(models.Model):
         return self.title1
 
     class Meta:
-        verbose_name = 'Dashboard Category'
-        verbose_name_plural = 'Dashboard Categories'
+        verbose_name = 'Dash Category'
+        verbose_name_plural = 'Dash Categories'
         db_table = 'dashboard_category'
 
 
@@ -171,6 +171,7 @@ class TgUsers(models.Model):
                                         )
                                     ],
                                     null=True, blank=True)
+    full_name = models.CharField(max_length=255, null=True, blank=True)
     lang = models.CharField(max_length=2, default='uz')
 
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)

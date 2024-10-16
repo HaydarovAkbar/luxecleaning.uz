@@ -1,6 +1,7 @@
 from typing import List
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
 from .messages import Messages as msg
+from apps.models import TgServices
 
 
 class Keyboards:
@@ -47,6 +48,7 @@ class Keyboards:
             [base_menu[2], base_menu[3]],
             [base_menu[4], base_menu[5]],
             [base_menu[6]],
+            [base_menu[8]],
             [base_menu[7]]
         ]
         return ReplyKeyboardMarkup(reply_buttons, resize_keyboard=True)
@@ -68,3 +70,14 @@ class Keyboards:
             [back]
         ]
         return ReplyKeyboardMarkup(reply_buttons, resize_keyboard=True)
+
+    @staticmethod
+    def get_service_types(services: List[TgServices], lang: str):
+        i = list()
+        for service in services:
+            if lang == 'uz':
+                i.append([InlineKeyboardButton(service.title_uz, callback_data=service.id)])
+            else:
+                i.append([InlineKeyboardButton(service.title_ru, callback_data=service.id)])
+        i.append([InlineKeyboardButton(msg().back.get(lang), callback_data='back')])
+        return InlineKeyboardMarkup(i)

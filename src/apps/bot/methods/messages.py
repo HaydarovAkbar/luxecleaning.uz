@@ -46,12 +46,10 @@ class Messages(SimpleNamespace):
     }
 
     base_menu = {
-        'uz': ["✅ Xizmatni buyurtma qiling", "🤵🏻‍♂️ Korporativ mijozlar uchun", "💰 Xizmatlar va narxlar", "🆕 Aksiya",
-               "🆘 FAQ-Menejer bilan bog'lanish", "☎️ Kontaktlar", "🗑 Mening buyurtmalarim", "⚙️ Sozlamalar"],
-        'ru': ["✅ Оформить заказ", "🤵🏻‍♂️ Для корпоративных клиентов", "💰 Услуги и цены", "🆕 Акция",
-               "🆘 FAQ-Связаться с менеджером", "☎️ Контакты", "🗑 Мои заказы", "⚙️ Настройки"],
-        'en': ["✅ Place an order", "🤵🏻‍♂️ For corporate clients", "💰 Services and prices", "🆕 Promotion",
-               "🆘 FAQ-Contact the manager", "☎️ Contacts", "🗑 My orders", "⚙️ Settings"]
+        'uz': ["✅ Xizmatni buyurtma qiling", "🤵🏻‍♂️ Korporativ mijozlar uchun", "💰 Narxlar", "🆕 Aksiya",
+               "🆘 FAQ", "☎️ Kontaktlar", "🗑 Mening buyurtmalarim", "⚙️ Sozlamalar", "💬 Menejer bilan bog'lanish"],
+        'ru': ["✅ Заказать услугу", "🤵🏻‍♂️ Для корпоративных клиентов", "💰 Цены", "🆕 Акция",
+               "🆘 FAQ", "☎️ Контакты", "🗑 Мои заказы", "⚙️ Настройки", "💬 Связаться с менеджером"],
     }
 
     services = {
@@ -95,8 +93,6 @@ Korporativ mijozlar bo'limiga murojaat qilganingiz uchun tashakkur. Biz sizning 
 Iltimos, <code>{}</code> ga qo'ng'iroq qilish orqali biz bilan bevosita bog'laning. Agar xohlasangiz, ushbu xatga oddiygina javob berishingiz mumkin va biz siz bilan eng qisqa vaqt ichida bog'lanamiz.
 
 Biz sizning biznesingizni qo'llab-quvvatlashni intiqlik bilan kutamiz!
-
-<i>Eng yaxshi ezgu tilaklar bilan</i>: <code>Luxe Cleaning</code>
 """,
         'ru': """
 💼 <b>Добро пожаловать в раздел корпоративных клиентов!</b>
@@ -108,10 +104,6 @@ Biz sizning biznesingizni qo'llab-quvvatlashni intiqlik bilan kutamiz!
 Пожалуйста, свяжитесь с нами напрямую, позвонив по номеру {}. Если хотите, вы можете просто ответить на это сообщение и мы свяжемся с вами в кратчайшие сроки.
 
 Мы с нетерпением ждем возможности поддержать ваш бизнес!
-
-С наилучшими пожеланиями,
-
-Luxe Cleaning
 """,
     }
 
@@ -134,8 +126,6 @@ Luxe Cleaning
 Mana siz uchun hozirgi maxsus takliflarimiz:
 
 {}
-
-Eng yaxshi ezgu tilaklar bilan,<code> Luxe Cleaning</code>
 """,
         'ru': """
 <b>Добро пожаловать в раздел скидок! 🎉</b>
@@ -143,31 +133,19 @@ Eng yaxshi ezgu tilaklar bilan,<code> Luxe Cleaning</code>
 Вот наши текущие специальные предложения:
 
 {}
-С наилучшими пожеланиями, <code>Luxe Cleaning</code>
 """
     }
 
     faq_and_connection = {
         'uz': """
-🆘 <b>FAQ-Menejer bilan bog'lanish</b>
-
-Tez-tez so'raladigan savollar bo'yicha ma'lumot:
+🆘 <b>Tez-tez tushadigan savollarga javoblar:</b>
 
 {}
-
-Agar sizda boshqa savollar bo'lsa, iltimos, biz bilan bog'laning: <code>{}</code>
-
-Eng yaxshi ezgu tilaklar bilan,<code> Luxe Cleaning</code>
 """,
         'ru': """
-🆘 <b>FAQ-Связаться с менеджером</b>
-        
-Информация по часто задаваемым вопросам:
+🆘 <b>Ответы на часто задаваемые вопросы:</b>
 
 {}
-Если у вас есть другие вопросы, пожалуйста, свяжитесь с нами: <code>{}</code>
-        
-С наилучшими пожеланиями, <code>Luxe Cleaning</code>
 """
     }
 
@@ -192,8 +170,6 @@ Biz bilan quyidagi kanallardan biri orqali bog'lanishingiz mumkin:
 {phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}{location}
 🌐 Veb-sayt: luxecleaning.uz
 O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo'lamiz!
-    
-Eng yaxshi ezgu tilaklar bilan, <code>Luxe Cleaning</code>
     """
 
     @staticmethod
@@ -203,7 +179,7 @@ Eng yaxshi ezgu tilaklar bilan, <code>Luxe Cleaning</code>
         phone1 = "📞 Телефон: " + (footer.phone1 if footer.phone1 else "") + "\n"
         phone2 = "📞 Телефон: " + (footer.phone2 if footer.phone2 else "") + "\n"
         email = ("📧 Электронная почта: " + footer.email if footer.email else "") + "\n"
-        location = ("📍 Местонахождение: " + "<a href='{}'>Карта</a>".format(get_location()) if get_location() else "")
+        location = ("📍 Расположение: " + "<a href='{}'>Карта</a>".format(get_location()) if get_location() else "")
         telegram = ("<a href='{}'>📱 Telegram</a>".format(footer.telegram) if footer.telegram else "") + "\n"
         instagram = ("<a href='{}'>📷 Instagram</a>".format(footer.instagram) if footer.instagram else "") + "\n"
         youtube = ("<a href='{}'>📺 YouTube</a>".format(footer.youtube) if footer.youtube else "") + "\n"
@@ -217,8 +193,6 @@ Eng yaxshi ezgu tilaklar bilan, <code>Luxe Cleaning</code>
 {phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}{location}
 🌐 Сайт: luxecleaning.uz
 Выбирайте наиболее удобный для вас способ и мы будем рады вам помочь!
-
-С наилучшими пожеланиями, <code>Luxe Cleaning</code>
             """
 
     use_service = {
@@ -259,4 +233,59 @@ Iltimos, telefon raqamingizni yuboring!
         
 Пожалуйста, отправьте свой номер телефона!
 """,
+    }
+    wrong_phone = {
+        'uz': "❌ Noto'g'ri telefon raqam! Iltimos, raqamingizni qayta yuboring.",
+        'ru': "❌ Неверный номер телефона! Пожалуйста, отправьте свой номер еще раз."
+    }
+
+    change_phone_success = {
+        'uz': "✅ Telefon raqamingiz muvaffaqiyatli o'zgartirildi! Iltimos ism va familiyangizni yuboring.",
+        'ru': "✅ Ваш номер телефона успешно изменен! Пожалуйста, отправьте свое имя и фамилию."
+    }
+
+    get_full_name = {
+        'uz': "Iltimos, ism va familiyangizni yuboring.",
+        'ru': "Пожалуйста, отправьте свое имя и фамилию."
+    }
+    succesfuly_order = {
+        'uz': "✅ Buyurtmangiz muvaffaqiyatli qabul qilindi! Biz tez orada siz bilan bog'lanamiz.",
+        'ru': "✅ Ваш заказ успешно принят! Мы свяжемся с вами в ближайшее время."
+    }
+    get_video = {
+        'uz': "📹 Video yuboring, video orqali biz sizga aniqroq xizmatlarimizni taklif etamiz.",
+        'ru': "📹 Отправьте видео, и мы предложим вам наши услуги более точно."
+    }
+
+    connection_with_admin = {
+        'uz': """
+<b>Xizmatlarimizni tanlaganingiz uchun tashakkur! 🎉</b>
+
+Murojaatingizga tezda javob beramiz. Sizga yordam berishdan xursandmiz! 💬
+""",
+        'ru': """
+<b>Спасибо за выбор наших услуг! 🎉</b>
+
+Мы ответим на ваш запрос в ближайшее время. Мы рады помочь вам! 💬
+"""
+    }
+    get_service_type = {
+        'uz': "<b>Iltimos! xizmatlarimizdan birini tanlang</b>",
+        'ru': "<b>Пожалуйста! выберите одну из наших услуг</b>"
+    }
+    get_service_type_msg = {
+        'uz': """
+<b>🎉 Hurmatli mijoz!</b>
+
+Biz sizga bog'lanishimiz uchun kerakli ma'lumotlarni kiriting:
+
+👉🏻 <b>Iltimos, telefon raqamingizni yuboring!</b>
+    """,
+        'ru': """
+<b>🎉 Уважаемый клиент!</b>
+
+Пожалуйста, введите необходимую информацию для связи с вами:
+
+👉🏻 <b> Пожалуйста, пришлите свой номер телефона! </b>
+    """
     }

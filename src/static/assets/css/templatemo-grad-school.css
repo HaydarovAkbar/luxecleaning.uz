@@ -218,16 +218,16 @@ a.menu-link {
     color: #fff;
 }
 
-.main-header .logo a em {
-    font-style: normal;
-    color: #769fff;
-}
+/*.main-header .logo a em {*/
+/*    !*font-style: normal;*!*/
+/*    color: #769fff;*/
+/*}*/
 
-.main-header .main-nav .header-fa-phone {
-    font-size: 16px;
-    color: red;
-    margin-right: 5px;
-}
+/*.main-header .main-nav .header-fa-phone {*/
+/*    font-size: 16px;*/
+/*    color: red;*/
+/*    margin-right: 5px;*/
+/*}*/
 
 
 .main-menu {
@@ -330,9 +330,9 @@ a.menu-link {
 
 /* Slider */
 .main-banner {
-    /*background-image: url(../images/woman-cleaning2.jpg);*/
+    background-image: url(../images/woman-cleaning2.jpg);
     background-size: cover;  /* Makes the background image cover the entire section */
-    background-position: center;  /* Centers the background image */
+    background-position: top;  /* Centers the background image */
     height: 100vh;  /* Sets the height to 100% of the viewport height */
     position: relative;  /* Allows for absolute positioning of child elements */
     /*padding-top: 150px; !* Adjust this value to move the image lower *!*/
@@ -411,7 +411,7 @@ a.menu-link {
 }
 
 .main-banner .caption h2 em {
-    font-style: normal;
+    /*font-style: normal;*/
     /*color: #009FBD;*/
     color: red;
     font-weight: 900;
@@ -442,71 +442,6 @@ a.menu-link {
 }
 
 /*!* Features new *!*/
-
-/*.features-post {*/
-/*    perspective: 1000px; !* Create perspective for 3D effect *!*/
-/*}*/
-
-/*.features-content {*/
-/*    background-color: #ffffff; !* Background color for the card *!*/
-/*    padding: 20px; !* Padding inside the card *!*/
-/*    border-radius: 10px; !* Rounded corners *!*/
-/*    transition: transform 0.3s ease, box-shadow 0.3s ease; !* Smooth transition for transform and shadow *!*/
-/*    transform: rotateY(-5deg) rotateX(3deg); !* Initial slight tilt *!*/
-/*    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); !* Shadow for depth *!*/
-/*    position: relative; !* Position for absolute child elements *!*/
-/*}*/
-
-/*!* Hover effect for the card *!*/
-/*.features-post:hover .features-content {*/
-/*    transform: rotateY(5deg) rotateX(0deg); !* Increased tilt on hover *!*/
-/*    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); !* Increased shadow on hover *!*/
-/*}*/
-
-/*!* Show/hide content smoothly *!*/
-/*.content-hide {*/
-/*    opacity: 0; !* Start hidden with 0 opacity *!*/
-/*    transition: opacity 0.3s ease; !* Smooth transition for opacity *!*/
-/*}*/
-
-/*.content-show {*/
-/*    opacity: 1; !* Show content with full opacity *!*/
-/*    transition: opacity 0.3s ease; !* Smooth transition for opacity *!*/
-/*}*/
-
-/*!* Hover state to control visibility *!*/
-/*.features-post:hover .content-show {*/
-/*    opacity: 0; !* Fade out on hover *!*/
-/*    pointer-events: none; !* Prevent interactions *!*/
-/*}*/
-
-/*.features-post:hover .content-hide {*/
-/*    opacity: 1; !* Fade in on hover *!*/
-/*    pointer-events: auto; !* Allow interactions *!*/
-/*}*/
-
-/*!* end Features new *!*/
-
-/*!* Features *!*/
-
-section.features .col-4 {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-
-.features-post {
-    position: relative;
-    margin-bottom: 0px;
-}
-
-.features-thumb {
-    overflow: hidden;
-    position: relative;
-}
-
-.features-thumb img {
-    width: 100%;
-}
 
 .features-content {
     position: relative;

@@ -31,43 +31,43 @@
 
 <header class="main-header" role="header">
     <div class="logo">
-        <img style="width: 200px; height: auto; margin-top: -10px;"
+        <img style="width: 150px; height: auto; margin-top: -10px;"
              src="{% static 'luxe_cleaning_logo.svg' %}">
     </div>
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
 
-            <a style="width: 200px; height: auto; background-color: #00FF00; border-radius: 10px; padding: 10px; font-size: 20px;"
+            <a style="width: 200px; height: auto; border-radius: 10px; padding: 10px; font-size: 20px;"
                href="tel:{{ footer.phone2 }}"><i
                     class="header-fa-phone"></i> {{ footer.phone2 }}</a>
-            <li><a href="#section1">Главная</a></li>
-            <li><a href="#section6">Контакт</a></li>
+            <li><a href="#section6">Заказать услугу</a></li>
         </ul>
     </nav>
 </header>
 
 <!-- ***** Main Banner Area Start ***** -->
 
-<section class="section main-banner" id="top" data-section="section1">
-    <video autoplay muted loop id="bg-video">
-        <source src="{% static 'assets/images/cleaning-video.mp4' %}" type="video/mp4"/>
-    </video>
-    <div class="video-overlay header-text">
-
-        <div class="caption">
-            <h2><em>Luxe Cleaning</em> Чистота без компромиссов!</h2>
-        </div>
-    </div>
-</section>
-
-<!-- ***** Main Banner Area Start ***** 'css 332 qator'-->
 <!--<section class="section main-banner" id="top" data-section="section1">-->
+<!--    <video autoplay muted loop id="bg-video">-->
+<!--        <source src="{% static 'assets/images/cleaning-video.mp4' %}" type="video/mp4"/>-->
+<!--    </video>-->
 <!--    <div class="video-overlay header-text">-->
+
 <!--        <div class="caption">-->
-<!--            <h2><em> < Luxe Cleaning ></em> Чистота без компромиссов!</h2>-->
+<!--            <h2><em>Luxe Cleaning</em> Чистота без компромиссов!</h2>-->
 <!--        </div>-->
 <!--    </div>-->
 <!--</section>-->
+
+<!-- ***** Main Banner Area Start ***** 'css 332 qator'-->
+<section class="section main-banner" id="top" data-section="section1">
+    <div class="video-overlay header-text">
+        <div class="caption">
+            <h2><em>Luxe Cleaning</em></h2>
+            <h3>Чистота без компромиссов!</h3>
+        </div>
+    </div>
+</section>
 
 
 <!-- ***** Main Banner Area End ***** -->
@@ -149,7 +149,7 @@
             <div>
                 <h6>
                     Указанные суммы не являются окончательной и публичной офертой. Точную сумму и информацию уточняйте
-                    по номеру телефона <em style="background-color: #00FF00">+998 77 114 3555.</em>
+                    по номеру телефона <em>+998 77 114 3555.</em>
                 </h6>
             </div>
         </div>
@@ -205,13 +205,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <fieldset>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Ваше имя"
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Имя"
                                        required="">
                             </fieldset>
                         </div>
                         <div class="col-md-6">
                             <fieldset>
-                                <input name="phone" type="tel" class="form-control" id="phone" placeholder="Ваш телефон"
+                                <input name="phone" type="tel" class="form-control" id="phone" placeholder="Телефон"
                                        pattern="^\+998\d{9}$"
                                        title="Номер телефона должен начинаться с +998 и содержать 9 цифр."
                                        required="">
@@ -220,13 +220,13 @@
                         <div class="col-md-12">
                             <fieldset>
                                 <textarea name="message" rows="6" class="form-control" id="message"
-                                          placeholder="Ваше сообщение..." required=""></textarea>
+                                          placeholder="Сообщение..." required=""></textarea>
                             </fieldset>
                         </div>
                         <div class="col-md-12">
                             <fieldset>
                                 <button style="background-color: #009FBD" type="submit" id="form-submit" class="button">
-                                    Отправить сообщение сейчас
+                                    Отправить
                                 </button>
                             </fieldset>
                         </div>
@@ -245,21 +245,21 @@
 </section>
 
 <footer>
-    <h5 style="color: #009FBD;">Контакты</h5>
+<!--    <h5 style="color: #009FBD;">Контакты</h5>-->
     {% if footer.address %}
     <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
     {% endif %}
     {% if footer.phone1 %}
-    <h6 style="color: white;">Telefon nomer: {{ footer.phone1 }}</h6>
+    <h6 style="color: white;">1. Номер телефона: {{ footer.phone1 }}</h6>
     {% endif %}
     {% if footer.phone2 %}
-    <h6 style="color: white;">Telefon nomer: {{ footer.phone2 }}</h6>
+    <h6 style="color: white;">2. Номер телефона:: {{ footer.phone2 }}</h6>
     {% endif %}
     {% if footer.email %}
     <h6 style="color: white;">Email: {{ footer.email }}</h6>
     {% endif %}
     <div class="social-icons" style="margin-top: 30px;">
-        <h5 style="color: #009FBD;">Социальные сети</h5>
+<!--        <h5 style="color: #009FBD;">Социальные сети</h5>-->
         {% if footer.facebook %}
         <a href="{{ footer.facebook }}" target="_blank"
            style="color: white; margin-right: 10px; font-size: 30px;">
