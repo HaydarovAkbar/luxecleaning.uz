@@ -27,19 +27,12 @@ class TGUsersAdmin(admin.ModelAdmin):
     list_display = ('chat_id', 'first_name', 'last_name', 'is_admin', 'created_at')
 
 
-# admin.site.register(Dashboard, BaseAdmin)
 admin.site.register(DashboardCategory, EditorAdmin)
 admin.site.register(About, Editor2Admin)
 admin.site.register(Services, Editor2Admin)
-# admin.site.register(ImportantInformation)
 admin.site.register(Footer, BaseAdmin)
-# admin.site.register(WhyChooseUs, Editor2Admin)
 admin.site.register(TgUsers, TGUsersAdmin)
 admin.site.register(FAQ, EditorAdmin)
-
-
-# admin.site.register(TgServices, EditorAdmin)
-# admin.site.register(Orders, BaseAdmin)
 
 
 @admin.register(Orders)

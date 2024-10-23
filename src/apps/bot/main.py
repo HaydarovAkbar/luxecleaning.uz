@@ -5,7 +5,8 @@ from decouple import config
 from django.conf import settings
 from .methods.scripts import start, get_lang, help, services, contact, user_settings, change_lang, \
     corporate_clients, get_corporate_phone, corporative_client_msg, discount, faq_and_connection, service_and_price, \
-    change_phone_number, get_full_name, get_name, get_video, message, connection_with_admin, get_service_type, re_phone
+    change_phone_number, get_full_name, get_name, get_video, message, connection_with_admin, get_service_type, re_phone, \
+    my_orders
 from .methods.messages import Messages as msg
 import logging
 from .states import States as st
@@ -49,7 +50,7 @@ all_handler = ConversationHandler(
                   MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[5] + ')$'),
                                  contact),
                   MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[6] + ')$'),
-                                 contact),
+                                 my_orders),
                   MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[7] + ')$'),
                                  user_settings),
                   MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[8] + ')$'),
@@ -68,7 +69,7 @@ all_handler = ConversationHandler(
                   MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[5] + ')$'),
                                  contact),
                   MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[6] + ')$'),
-                                 contact),
+                                 my_orders),
                   MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[7] + ')$'),
                                  user_settings),
                   MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[8] + ')$'),
@@ -99,7 +100,7 @@ all_handler = ConversationHandler(
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[5] + ')$'),
                                      contact),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[6] + ')$'),
-                                     contact),
+                                     my_orders),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[7] + ')$'),
                                      user_settings),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('ru')[8] + ')$'),
@@ -118,7 +119,7 @@ all_handler = ConversationHandler(
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[5] + ')$'),
                                      contact),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[6] + ')$'),
-                                     contact),
+                                     my_orders),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[7] + ')$'),
                                      user_settings),
                       MessageHandler(Filters.regex('^(' + msg().base_menu.get('uz')[8] + ')$'),

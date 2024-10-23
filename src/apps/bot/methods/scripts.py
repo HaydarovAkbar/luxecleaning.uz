@@ -7,7 +7,7 @@ from .keyboards import Keyboards as kb
 from .messages import Messages as msg
 from ..states import States as state
 
-from apps.models import TgUsers, Footer, Stock, FAQ, TgServices, TgServicesPrice
+from apps.models import TgUsers, Footer, Stock, FAQ, TgServices, TgServicesPrice, Orders
 
 import re
 
@@ -191,59 +191,15 @@ def service_and_price(update: Update, context: CallbackContext):
 
     service_pr = ""
 
-    if user_db.lang == 'uz':
-        for ser in _service_:
-            # Add service title
-            service_pr += "🔸 <b>{:^}</b>\n".format(ser.title_uz)
-
-            # Accumulate prices per service
-            for pr in TgServicesPrice.objects.filter(service=ser):
-                service_pr += "<i>{:<15} {:<25}  (bir marta)</i>\n".format(
-                    pr.size_uz, pr.daily_price_uz
-                )
-                service_pr += "<i>{:<15} {:<25}  (15-20 marta)</i>\n".format(
-                    pr.size_uz, pr.monthly_price_uz
-                )
-            service_pr += "\n"
-        bot_msg = """
-✳️ <b>Xizmatlarimizga qiziqish bildirganingiz uchun tashakkur!</b>
-
-Hozir biz taklif qilayotgan xizmatlar:
-
-{}
-Qo'shimcha ma'lumot olish yoki xizmatni bron qilish uchun biz bilan bog'laning!
-            """.format(service_pr)
-    else:
-        for ser in _service_:
-            # Add service title
-            service_pr += "🔸 <b>{:^}</b>\n".format(ser.title_ru)
-
-            # Accumulate prices per service
-            for pr in TgServicesPrice.objects.filter(service=ser):
-                service_pr += "<i>{:<15} {:<25}  (один раз)</i>\n".format(
-                    pr.size_ru, pr.daily_price_ru
-                )
-                service_pr += "<i>{:<15} {:<25}  (15-20 раз в месяц)</i>\n".format(
-                    pr.size_ru, pr.monthly_price_ru
-                )
-            service_pr += "\n"
-        bot_msg = """
-✳️ <b>Спасибо за интерес к нашим услугам!</b>
-
-Услуги, которые мы предлагаем на данный момент:
-
-{}
-Свяжитесь с нами для получения дополнительной информации или заказа услуги!
-""".format(service_pr)
-
+    bot_msg = msg().service_price.get(user_db.lang)
     update.message.reply_html(bot_msg, reply_markup=kb.back(user_db.lang))
     return state.GET_MENU
 
 
 def services(update: Update, context: CallbackContext):
     user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
-    a = update.message.reply_text('✅✅✅', reply_markup=ReplyKeyboardRemove())
-    context.bot.delete_message(chat_id=a.chat_id, message_id=a.message_id)
+    update.message.reply_html(msg().btv.get(user_db.lang), reply_markup=ReplyKeyboardRemove())
+    # context.bot.delete_message(chat_id=a.chat_id, message_id=a.message_id)
     update.message.reply_html(msg().get_service_type.get(user_db.lang),
                               reply_markup=kb.get_service_types(TgServices.objects.all(), user_db.lang))
     return state.GET_SERVICE_TYPE
@@ -304,19 +260,24 @@ def get_name(update: Update, context: CallbackContext):
         text=f"Xabar egasi: {update.message.from_user.first_name}",
         url=f"tg://user?id={update.message.from_user.id}"
     )
+    user_service = TgServices.objects.get(id=context.chat_data['service_id'])
     reply_markup = InlineKeyboardMarkup([[button]])
     bot_msg = """
 Murojaat kelib tushdi!
 
 👤 Familiya Ism: {}
+♻️ Xizmat turi: {}
 📞 Telefon: {}
 📅 Vaqt: {}
-""".format(user_db.full_name, user_db.phone_number, user_db.get_created_at())
+""".format(user_db.full_name, user_service.title_uz, user_db.phone_number, user_db.get_created_at())
     try:
         context.bot.send_message(chat_id=settings.CHANNEL_ID, text=bot_msg, reply_markup=reply_markup)
     except Exception as e:
         print(e)
-
+    Orders.objects.create(
+        user=user_db,
+        service=user_service,
+    )
     update.message.reply_html(msg().succesfuly_order.get(user_db.lang) + '\n\n' + msg().get_video.get(user_db.lang),
                               reply_markup=kb.back(user_db.lang))
     return state.GET_VIDEO
@@ -369,3 +330,37 @@ def message(update: Update, context: CallbackContext):
     update.message.reply_html(msg().succesfuly_corporate_clients.get(user_db.lang),
                               reply_markup=kb.back(user_db.lang))
     return state.MESSAGE
+
+
+def my_orders(update: Update, context: CallbackContext):
+    user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
+    orders = Orders.objects.filter(user=user_db)
+    i = 1
+    if user_db.lang == 'uz':
+        bot_msg = ""
+        for order in orders:
+            ord_status = msg().get_order_status(order.status, user_db.lang)
+            bot_msg += f"{i}).  <i>{order.service.title_uz}</i>        {order.get_created_at()}    {ord_status}\n"
+            i += 1
+        result = """
+<b>🛀 Sizning buyurtmalaringiz:</b>
+
+№     Xizmat turi       Vaqt          Holati
+{}
+        """
+        bot_msg = result.format(bot_msg)
+    else:
+        bot_msg = ""
+        for order in orders:
+            ord_status = msg().get_order_status(order.status, user_db.lang)
+            bot_msg += f"{i}).  <i>{order.service.title_ru}</i>        {order.get_created_at()}    {ord_status}\n"
+            i += 1
+        result = """
+<b>🛀 Ваши заказы:</b>
+
+№     Тип услуги       Время          Статус
+{}
+        """
+        bot_msg = result.format(bot_msg)
+    update.message.reply_html(bot_msg, reply_markup=kb.back(user_db.lang))
+    return state.GET_MENU

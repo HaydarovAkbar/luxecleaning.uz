@@ -273,6 +273,9 @@ class Orders(models.Model):
         self.update_at = timezone.now()
         return super(Orders, self).save(*args, **kwargs)
 
+    def get_created_at(self):
+        return self.created_at.strftime('%Y-%m-%d')
+
     class Meta:
         verbose_name = 'Order (Zakaz)'
         verbose_name_plural = 'Orders (Zakazlar)'

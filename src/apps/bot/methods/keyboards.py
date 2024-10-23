@@ -32,7 +32,7 @@ class Keyboards:
         back_txt = msg().back.get(lang)
         continue_txt = msg().continiue_msg.get(lang)
         keyboard = [KeyboardButton(kb_txt, request_contact=True)]
-        return ReplyKeyboardMarkup([keyboard, [continue_txt], [back_txt]], resize_keyboard=True)
+        return ReplyKeyboardMarkup([keyboard, [back_txt]], resize_keyboard=True)  # [continue_txt],
 
     @staticmethod
     def location():
@@ -47,8 +47,8 @@ class Keyboards:
             [base_menu[1]],
             [base_menu[2], base_menu[3]],
             [base_menu[4], base_menu[5]],
-            [base_menu[6]],
-            [base_menu[8]],
+            [base_menu[6], base_menu[8]],
+            # [base_menu[8]],
             [base_menu[7]]
         ]
         return ReplyKeyboardMarkup(reply_buttons, resize_keyboard=True)
@@ -73,11 +73,13 @@ class Keyboards:
 
     @staticmethod
     def get_service_types(services: List[TgServices], lang: str):
-        i = list()
+        i, j = list(), 0
         for service in services:
+            j += 1
+            _ = msg().numbers.get(str(j))
             if lang == 'uz':
-                i.append([InlineKeyboardButton(service.title_uz, callback_data=service.id)])
+                i.append([InlineKeyboardButton(_ + ' ' + service.title_uz, callback_data=service.id)])
             else:
-                i.append([InlineKeyboardButton(service.title_ru, callback_data=service.id)])
+                i.append([InlineKeyboardButton(_ + ' ' + service.title_ru, callback_data=service.id)])
         i.append([InlineKeyboardButton(msg().back.get(lang), callback_data='back')])
         return InlineKeyboardMarkup(i)
