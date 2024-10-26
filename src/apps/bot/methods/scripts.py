@@ -143,9 +143,9 @@ def discount(update: Update, context: CallbackContext):
     for dis in Stock.objects.all():
         _ = msg.numbers.get(str(i))
         if user_db.lang == 'uz':
-            discount_msg += f"{_}. <b>{dis.title_uz}</b> - {dis.description_uz}\n\n"
+            discount_msg += f"{_} <b>{dis.title_uz}</b> - {dis.description_uz}\n\n"
         else:
-            discount_msg += f"{_}. <b>{dis.title_ru}</b> - {dis.description_ru}\n\n"
+            discount_msg += f"{_} <b>{dis.title_ru}</b> - {dis.description_ru}\n\n"
         i += 1
     update.message.reply_html(bot_msg.format(discount_msg), reply_markup=kb.back(user_db.lang))
     return state.GET_MENU
@@ -160,9 +160,9 @@ def faq_and_connection(update: Update, context: CallbackContext):
     for f in FAQ.objects.all():
         _ = msg.numbers.get(str(i))
         if user_db.lang == 'uz':
-            faq_msg += f"{_}. <b>{remove_html_tags(f.question_uz)}</b>\n{remove_html_tags(f.answer_uz)}\n\n"
+            faq_msg += f"{_} <b>{remove_html_tags(f.question_uz)}</b>\n{remove_html_tags(f.answer_uz)}\n\n"
         else:
-            faq_msg += f"{_}. <b>{remove_html_tags(f.question)}</b>\n{remove_html_tags(f.answer)}\n\n"
+            faq_msg += f"{_} <b>{remove_html_tags(f.question)}</b>\n{remove_html_tags(f.answer)}\n\n"
         i += 1
     bot_msg = msg().faq_and_connection.get(user_db.lang).format(faq_msg, Footer.objects.first().phone2)
     update.message.reply_html(bot_msg, reply_markup=kb.back(user_db.lang))
@@ -189,7 +189,7 @@ def service_and_price(update: Update, context: CallbackContext):
     user_db = TgUsers.objects.get(chat_id=update.message.chat_id)
     _service_ = TgServices.objects.all()
 
-    service_pr = ""
+    # service_pr = ""
 
     bot_msg = msg().service_price.get(user_db.lang)
     update.message.reply_html(bot_msg, reply_markup=kb.back(user_db.lang))
@@ -340,12 +340,11 @@ def my_orders(update: Update, context: CallbackContext):
         bot_msg = ""
         for order in orders:
             ord_status = msg().get_order_status(order.status, user_db.lang)
-            bot_msg += f"{i}).  <i>{order.service.title_uz}</i>        {order.get_created_at()}    {ord_status}\n"
+            bot_msg += f"{i}.  <i>{order.service.title_uz}</i>        \n⏳ <b>{order.get_created_at()}</b>    \n<b>{ord_status}</b>\n"
             i += 1
         result = """
 <b>🛀 Sizning buyurtmalaringiz:</b>
 
-№     Xizmat turi       Vaqt          Holati
 {}
         """
         bot_msg = result.format(bot_msg)
@@ -353,12 +352,11 @@ def my_orders(update: Update, context: CallbackContext):
         bot_msg = ""
         for order in orders:
             ord_status = msg().get_order_status(order.status, user_db.lang)
-            bot_msg += f"{i}).  <i>{order.service.title_ru}</i>        {order.get_created_at()}    {ord_status}\n"
+            bot_msg += f"{i}.  <i>{order.service.title_ru}</i>        \n⏳ <b>{order.get_created_at()}</b>    \n<b>{ord_status}</b>\n"
             i += 1
         result = """
 <b>🛀 Ваши заказы:</b>
 
-№     Тип услуги       Время          Статус
 {}
         """
         bot_msg = result.format(bot_msg)

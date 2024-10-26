@@ -330,7 +330,7 @@ a.menu-link {
 
 /* Slider */
 .main-banner {
-    background-image: url(../images/woman-cleaning2.jpg);
+    background-image: url(../images/woman-cleaning2-min.jpg);
     background-size: cover;  /* Makes the background image cover the entire section */
     background-position: top;  /* Centers the background image */
     height: 100vh;  /* Sets the height to 100% of the viewport height */

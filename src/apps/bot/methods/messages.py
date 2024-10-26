@@ -157,18 +157,20 @@ Mana siz uchun hozirgi maxsus takliflarimiz:
         phone2 = "📞 Telefon: " + (footer.phone2 if footer.phone2 else "") + "\n"
         email = ("📧 Elektron pochta: " + footer.email if footer.email else "") + "\n"
         location = ("📍 Joylashuv: " + "<a href='{}'>Xarita</a>".format(get_location()) if get_location() else "")
-        telegram = ("<a href='{}'>📱 Telegram</a>".format(footer.telegram) if footer.telegram else "") + "\n"
-        instagram = ("<a href='{}'>📷 Instagram</a>".format(footer.instagram) if footer.instagram else "") + "\n"
-        youtube = ("<a href='{}'>📺 YouTube</a>".format(footer.youtube) if footer.youtube else "") + "\n"
-        facebook = ("<a href='{}'>📘 Facebook</a>".format(footer.facebook) if footer.facebook else "") + "\n"
+        telegram = ("<a href='{}'>📱 Telegram</a>\n".format(footer.telegram) if footer.telegram else "")
+        instagram = ("<a href='{}'>📷 Instagram</a>\n".format(footer.instagram) if footer.instagram else "")
+        youtube = ("<a href='{}'>📺 YouTube</a>\n".format(footer.youtube) if footer.youtube else "")
+        facebook = ("<a href='{}'>📘 Facebook</a>\n".format(footer.facebook) if footer.facebook else "")
 
         return f"""
 <b>Bizga murojaat qilganingiz uchun tashakkur!</b>
     
 Biz bilan quyidagi kanallardan biri orqali bog'lanishingiz mumkin:
     
-{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}{location}
-🌐 Veb-sayt: luxecleaning.uz
+{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}🌐 luxecleaning.uz
+
+{location}
+
 O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo'lamiz!
     """
 
@@ -180,18 +182,20 @@ O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo
         phone2 = "📞 Телефон: " + (footer.phone2 if footer.phone2 else "") + "\n"
         email = ("📧 Электронная почта: " + footer.email if footer.email else "") + "\n"
         location = ("📍 Расположение: " + "<a href='{}'>Карта</a>".format(get_location()) if get_location() else "")
-        telegram = ("<a href='{}'>📱 Telegram</a>".format(footer.telegram) if footer.telegram else "") + "\n"
-        instagram = ("<a href='{}'>📷 Instagram</a>".format(footer.instagram) if footer.instagram else "") + "\n"
-        youtube = ("<a href='{}'>📺 YouTube</a>".format(footer.youtube) if footer.youtube else "") + "\n"
-        facebook = ("<a href='{}'>📘 Facebook</a>".format(footer.facebook) if footer.facebook else "") + "\n"
+        telegram = ("<a href='{}'>📱 Telegram</a>\n".format(footer.telegram) if footer.telegram else "")
+        instagram = ("<a href='{}'>📷 Instagram</a>\n".format(footer.instagram) if footer.instagram else "")
+        youtube = ("<a href='{}'>📺 YouTube</a>\n".format(footer.youtube) if footer.youtube else "")
+        facebook = ("<a href='{}'>📘 Facebook</a>\n".format(footer.facebook) if footer.facebook else "")
 
         return f"""
 <b>Спасибо, что обратились к нам!</b>
 
 Вы можете связаться с нами по одному из следующих каналов:
 
-{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}{location}
-🌐 Сайт: luxecleaning.uz
+{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}🌐 luxecleaning.uz
+
+{location}
+
 Выбирайте наиболее удобный для вас способ и мы будем рады вам помочь!
             """
 
@@ -240,8 +244,8 @@ Iltimos, telefon raqamingizni yuboring!
     }
 
     change_phone_success = {
-        'uz': "✅ Telefon raqamingiz muvaffaqiyatli o'zgartirildi! Iltimos ism va familiyangizni yuboring.",
-        'ru': "✅ Ваш номер телефона успешно изменен! Пожалуйста, отправьте свое имя и фамилию."
+        'uz': "✅ Telefon raqamingiz muvaffaqiyatli o'zgartirildi! Iltimos ismingizni yuboring.",
+        'ru': "✅ Ваш номер телефона успешно изменен! Пожалуйста, отправьте свое имя."
     }
 
     get_full_name = {
@@ -253,8 +257,8 @@ Iltimos, telefon raqamingizni yuboring!
         'ru': "✅ Ваш заказ успешно принят! Мы свяжемся с вами в ближайшее время."
     }
     get_video = {
-        'uz': "📹 Video yuboring, video orqali biz sizga aniqroq xizmatlarimizni taklif etamiz.",
-        'ru': "📹 Отправьте видео, и мы предложим вам наши услуги более точно."
+        'uz': "📹 Narxni aniqroq aniqlash uchun mulk haqidagi maʼlumotlarni, shuningdek, fotosurat yoki videoni yuboring.",
+        'ru': "📹 Пожалуйста, отправьте информацию об объекте, а также фото или видео для более точного определения цены."
     }
 
     btv = {
@@ -283,33 +287,29 @@ Murojaatingizga tezda javob beramiz. Sizga yordam berishdan xursandmiz! 💬
 <b>🎉 Hurmatli mijoz!</b>
 
 Biz sizga bog'lanishimiz uchun kerakli ma'lumotlarni kiriting:
-
-👉🏻 <b>Iltimos, telefon raqamingizni yuboring!</b>
     """,
         'ru': """
 <b>🎉 Уважаемый клиент!</b>
 
 Пожалуйста, введите необходимую информацию для связи с вами:
-
-👉🏻 <b> Пожалуйста, пришлите свой номер телефона! </b>
     """
     }
 
     def get_order_status(self, status: str, lang: str):
         if lang == 'uz':
             if status == 'pending':
-                return 'Kutilmoqda 🕞'
+                return '🕞 Kutilmoqda'
             elif status == 'completed':
-                return 'Yakunlandi ✅'
+                return '✅ Yakunlandi'
             elif status == 'canceled':
-                return 'Bekor qilindi 🚫'
+                return '🚫 Bekor qilindi'
         else:
             if status == 'pending':
-                return 'Ожидается 🕞'
+                return '🕞 Ожидается'
             elif status == 'completed':
-                return 'Выполнено ✅'
+                return '✅ Выполнено'
             elif status == 'canceled':
-                return 'Отменено 🚫'
+                return '🚫 Отменено'
 
     service_price = {
         'ru': """

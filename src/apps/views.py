@@ -8,6 +8,8 @@ from .bot.main import bot, dispatcher
 import requests
 import json
 from django.views import View
+from telegram.error import RetryAfter
+import time
 
 
 from .models import Dashboard, DashboardCategory, About, Services, WhyChooseUs, Footer, TgUsers, FAQ
@@ -69,6 +71,10 @@ class MainView(View):
             body_json = json.loads(body)
             update: Update = Update.de_json(body_json, bot)
             dispatcher.process_update(update)
+        except RetryAfter as e:
+            print(f"Flood control exceeded. Retrying in {e.retry_after} seconds...")
+            time.sleep(e.retry_after)  # Wait before retrying
+            dispatcher.process_update(update)  # Retry processing the update
         except Exception as e:
             print(e)
         return HttpResponse('POST request')

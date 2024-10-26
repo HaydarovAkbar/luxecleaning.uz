@@ -70,7 +70,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -211,7 +211,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # HOST = 'https://76cb-194-93-24-3.ngrok-free.app'
-HOST = 'https://45ba-92-63-205-161.ngrok-free.app'
+HOST = 'https://luxecleaning.uz/'
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
