@@ -268,14 +268,14 @@ Iltimos, telefon raqamingizni yuboring!
 
     connection_with_admin = {
         'uz': """
-<b>Xizmatlarimizni tanlaganingiz uchun tashakkur! 🎉</b>
+<b>Xizmatlarimizni tanlaganingiz uchun minnatdorchilik bildiramiz! 🎉</b>
 
-Murojaatingizga tezda javob beramiz. Sizga yordam berishdan xursandmiz! 💬
+Murojaatingizni qoldiring. Sizga yordam berishdan xursandmiz! 💬
 """,
         'ru': """
-<b>Спасибо за выбор наших услуг! 🎉</b>
+<b>Спасибо, что выбрали наши услуги! 🎉</b>
 
-Мы ответим на ваш запрос в ближайшее время. Мы рады помочь вам! 💬
+Оставьте заявку. Мы рады вам помочь! 💬
 """
     }
     get_service_type = {

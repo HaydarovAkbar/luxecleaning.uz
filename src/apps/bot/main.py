@@ -1,8 +1,6 @@
 from telegram import Update, Bot
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackContext, \
     CallbackQueryHandler
-from telegram.error import RetryAfter
-import time
 from decouple import config
 from django.conf import settings
 from .methods.scripts import start, get_lang, help, services, contact, user_settings, change_lang, \
@@ -12,7 +10,8 @@ from .methods.scripts import start, get_lang, help, services, contact, user_sett
 from .methods.messages import Messages as msg
 import logging
 from .states import States as st
-
+from telegram.error import RetryAfter
+import time
 # from .messages.main import KeyboardText as msg_text
 
 # Enable logging
@@ -31,6 +30,7 @@ def run():
         print(f"Flood control exceeded. Retrying in {e.retry_after} seconds...")
         time.sleep(e.retry_after)  # Wait for the retry period
         bot.set_webhook(webhook_url)  # Try setting the webhook again
+
 
 bot: Bot = Bot(token=config('TOKEN'))
 
