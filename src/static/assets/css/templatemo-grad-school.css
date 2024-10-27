@@ -1,5 +1,7 @@
 @import url(fontawesome.css);
 @import url("<link href="
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900
 " rel="
 stylesheet
@@ -210,6 +212,24 @@ a.menu-link {
     padding-left: 60px;
 }
 
+.social-icons .telegram img {
+    width: 40px; /* Adjust the width as desired */
+    height: auto;
+    margin-left: 35px; /* Adds space between logo and Telegram icon */
+}
+
+.social-icons .instagram img {
+    width: 40px; /* Adjust the width as desired */
+    height: auto;
+    margin-left: 15px; /* Adds space between logo and Instagram icon */
+}
+
+.social-icons .facebook img {
+    width: 40px; /* Adjust the width as desired */
+    height: auto;
+    margin-left: 15px; /* Adds space between logo and Facebook icon */
+}
+
 
 .main-header .logo a {
     font-size: 36px;
@@ -217,17 +237,6 @@ a.menu-link {
     font-weight: 800;
     color: #fff;
 }
-
-/*.main-header .logo a em {*/
-/*    !*font-style: normal;*!*/
-/*    color: #769fff;*/
-/*}*/
-
-/*.main-header .main-nav .header-fa-phone {*/
-/*    font-size: 16px;*/
-/*    color: red;*/
-/*    margin-right: 5px;*/
-/*}*/
 
 
 .main-menu {
@@ -317,6 +326,7 @@ a.menu-link {
 .main-nav li.active a {
     border: 1px solid #009FBD;
     border-radius: 4px;
+    /*font-size: 20px;  !* Increase font size on hover *!*/
 }
 
 @media (max-width: 950px) {
@@ -331,24 +341,24 @@ a.menu-link {
 /* Slider */
 .main-banner {
     background-image: url(../images/woman-cleaning2-min.jpg);
-    background-size: cover;  /* Makes the background image cover the entire section */
-    background-position: top;  /* Centers the background image */
-    height: 100vh;  /* Sets the height to 100% of the viewport height */
-    position: relative;  /* Allows for absolute positioning of child elements */
+    background-size: cover; /* Makes the background image cover the entire section */
+    background-position: top; /* Centers the background image */
+    height: 100vh; /* Sets the height to 100% of the viewport height */
+    position: relative; /* Allows for absolute positioning of child elements */
     /*padding-top: 150px; !* Adjust this value to move the image lower *!*/
 }
 
 .video-overlay {
-    position: absolute;  /* Position the overlay absolutely */
+    position: absolute; /* Position the overlay absolutely */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     display: flex;
-    align-items: center;  /* Centers content vertically */
-    justify-content: center;  /* Centers content horizontally */
-    color: white;  /* Adjust text color for better visibility */
-    text-align: center;  /* Center text alignment */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    color: white; /* Adjust text color for better visibility */
+    text-align: center; /* Center text alignment */
 }
 
 
@@ -374,7 +384,7 @@ a.menu-link {
 
 .video-overlay {
     position: absolute;
-    background-color: rgba(0,0,0, 0.5); /* Dark overlay dashboard */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay dashboard */
     top: 0;
     left: 0;
     bottom: 7px;
@@ -402,19 +412,12 @@ a.menu-link {
 .main-banner .caption h2 {
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size: 44px;
     text-transform: uppercase;
-    font-weight: 800;
-    color: #fff;
     letter-spacing: 1px;
     text-shadow: 0 0 20px rgba(225, 225, 225, 0.5);
-}
-
-.main-banner .caption h2 em {
-    /*font-style: normal;*/
-    /*color: #009FBD;*/
-    color: red;
+    color: #009FBD;
     font-weight: 900;
+    font-size: 80px;
 }
 
 @media screen and (max-width: 1180px) {
@@ -451,7 +454,7 @@ a.menu-link {
     background-color: #009FBD;
     color: #fff;
     padding: 40px;
-    border-radius: 8px ;
+    border-radius: 8px;
 }
 
 .features-content:hover {
@@ -596,7 +599,7 @@ section.courses .owl-carousel button.active {
 
 /* Button styling */
 .service-card .btn {
-    background-color: #007bff;
+    background-color: #009FBD;
     border: none;
     color: white;
     text-transform: uppercase;
@@ -634,7 +637,7 @@ section.courses {
     /*background-image: url(../images/choosing-bg.jpg);*/
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #F2F2F4 ;
+    background-color: #F2F2F4;
     padding-bottom: 100px;
     padding: 0px 30px 100px 30px;
 }
@@ -789,9 +792,10 @@ section.courses .owl-carousel button.active {
 }
 
 /* Ensure all inputs look similar with the same box-shadow and padding */
-#contact{
+#contact {
     background-color: #ECF2FE;
 }
+
 #contact input#name,
 #contact input#phone,
 #contact textarea#message {
@@ -855,7 +859,8 @@ button.button:hover {
 .section.video h3 {
     color: #009FBD; /* Orange title color */
     /*border-bottom: 2px solid #769fff;*/
-    font-size: 28px;
+    font-weight: 700;
+    font-size: 48px;
     padding-bottom: 10px;
 }
 
@@ -1102,7 +1107,7 @@ button::-moz-focus-inner {
     padding: 15px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    /*transition: background-color 0.3s;*/
 }
 
 .card-header:hover {
@@ -1112,7 +1117,7 @@ button::-moz-focus-inner {
 .card-header a {
     text-decoration: none;
     font-size: 18px;
-    color: #6d4cff;
+    color: #009FBD;
     font-weight: 600;
 }
 
@@ -1145,7 +1150,6 @@ button::-moz-focus-inner {
 
 
 /* end section3 FAQ */
-
 
 
 .mfp-close:hover,
@@ -1438,7 +1442,7 @@ img.mfp-img {
 section.contact {
     /*background-image: url(../images/contact-bg.jpg);*/
     /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
+    background-size: cover;
     background-color: #fff;
     padding-bottom: 120px;
 }
@@ -1535,7 +1539,7 @@ section.contact form textarea::placeholder {
 /* Footer */
 
 footer {
-    background-color: #777778;
+    background-color: #333;
     text-align: center;
     padding: 20px;
 }
@@ -1594,7 +1598,7 @@ footer p a:hover {
     }
 
     .main-menu li .sub-menu li:last-child {
-        border-bottom: 1px solid rgba(250, 250, 250, 0.25);
+        border-bottom: 1px solid rgba(250, 250, 250, 0.5);
     }
 }
 

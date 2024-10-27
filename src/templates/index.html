@@ -39,10 +39,10 @@
     </div>
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
-            <li><a style="font-weight: bold; font-size: 15px;" href="#section1">Главная</a></li>
+<!--            <li><a style="font-weight: bold; font-size: 15px;" href="#section1">Главная</a></li>-->
             <li><a style="font-weight: bold; font-size: 15px;" href="#section5">О нас</a></li>
             <li><a style="font-weight: bold; font-size: 15px;" href="#section4">Наши услуги</a></li>
-            <li><a style="font-weight: bold; font-size: 15px;" href="#section3">Вопросы и ответы</a></li>
+<!--            <li><a style="font-weight: bold; font-size: 15px;" href="#section3">Вопросы и ответы</a></li>-->
             <li><a style="font-weight: bold; font-size: 15px;" href="#section6">Связаться с нами</a></li>
             <a style="width: 200px; height: auto; border-radius: 10px; padding: 10px; font-size: 24px; font-weight: bold;"
                href="tel:{{ footer.phone2 }}"><i
@@ -56,7 +56,7 @@
 <section class="section main-banner" id="top" data-section="section1">
     <div class="video-overlay header-text">
         <div class="caption">
-            <h2><em>Luxe Cleaning</em></h2>
+            <h2>Luxe Cleaning</h2>
             <h3>Чистота без компромиссов!</h3>
         </div>
     </div>
@@ -243,11 +243,11 @@
     <div style="display: flex; justify-content: center">
         <h6 style="color: white; margin-right: 5px;">Телефон: </h6>
         <div>
-            {% if footer.phone1 %}
-                <h6 style="color: white;"> {{ footer.phone1 }}</h6>
-            {% endif %}
             {% if footer.phone2 %}
                 <h6 style="color: white;"> {{ footer.phone2 }}</h6>
+            {% endif %}
+            {% if footer.phone1 %}
+                <h6 style="color: white;"> {{ footer.phone1 }}</h6>
             {% endif %}
 
         </div>
