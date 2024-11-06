@@ -47,9 +47,9 @@ class Messages(SimpleNamespace):
 
     base_menu = {
         'uz': ["✅ Xizmatni buyurtma qiling", "🤵🏻‍♂️ Korporativ mijozlar uchun", "💰 Narxlar", "🆕 Aksiya va sikidka",
-               "🆘 FAQ", "☎️ Kontaktlar", "🗑 Mening buyurtmalarim", "⚙️ Sozlamalar", "💬 Menejer bilan bog'lanish"],
+               "🆘 FAQ", "☎️ Bog'lanish", "🗑 Mening buyurtmalarim", "⚙️ Sozlamalar", "💬 Menejer bilan bog'lanish"],
         'ru': ["✅ Заказать услугу", "🤵🏻‍♂️ Для корпоративных клиентов", "💰 Услуги", "🆕 Акции и скидки",
-               "🆘 FAQ", "☎️ Контакты", "🗑 Мои заказы", "⚙️ Настройки", "💬 Связаться с менеджером"],
+               "🆘 FAQ", "☎️ Связаться", "🗑 Мои заказы", "⚙️ Настройки", "💬 Связаться с менеджером"],
     }
 
     services = {
@@ -123,14 +123,14 @@ Biz sizning biznesingizni qo'llab-quvvatlashni intiqlik bilan kutamiz!
         'uz': """
 <b>Chegirmalar bo'limiga xush kelibsiz! 🎉</b>
 
-Mana siz uchun hozirgi maxsus takliflarimiz:
+Quyida siz uchun maxsus takliflarimiz:
 
 {}
 """,
         'ru': """
 <b>Добро пожаловать в раздел скидок! 🎉</b>
 
-Вот наши текущие специальные предложения:
+Ниже наши специальные предложения для вас:
 
 {}
 """
@@ -138,7 +138,7 @@ Mana siz uchun hozirgi maxsus takliflarimiz:
 
     faq_and_connection = {
         'uz': """
-🆘 <b>Tez-tez tushadigan savollarga javoblar:</b>
+🆘 <b>Ko'p beriladigan savollarga javoblar:</b>
 
 {}
 """,
@@ -153,8 +153,8 @@ Mana siz uchun hozirgi maxsus takliflarimiz:
     def get_contact_msg_uz(footer: Footer):
         get_location = lambda: f"https://www.google.com/maps/@{footer.longitude},{footer.latitude},13z?hl=en-US&entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D" if footer.longitude and footer.latitude else ""
 
-        phone1 = "📞 Telefon: " + (footer.phone1 if footer.phone1 else "") + "\n"
-        phone2 = "📞 Telefon: " + (footer.phone2 if footer.phone2 else "") + "\n"
+        phone1 = "📞 Telefon: \n" + (footer.phone1 if footer.phone1 else "") + "\n"
+        phone2 = "" + (footer.phone2 if footer.phone2 else "") + "\n"
         email = ("📧 Elektron pochta: " + footer.email if footer.email else "") + "\n"
         location = ("📍 Joylashuv: " + "<a href='{}'>Xarita</a>".format(get_location()) if get_location() else "")
         telegram = ("<a href='{}'>📱 Telegram</a>\n".format(footer.telegram) if footer.telegram else "")
@@ -163,7 +163,7 @@ Mana siz uchun hozirgi maxsus takliflarimiz:
         facebook = ("<a href='{}'>📘 Facebook</a>\n".format(footer.facebook) if footer.facebook else "")
 
         return f"""
-<b>Bizga murojaat qilganingiz uchun tashakkur!</b>
+<b>Bizga murojaat qilganingiz uchun minnatdorchilik bildiramiz!</b>
     
 Biz bilan quyidagi kanallardan biri orqali bog'lanishingiz mumkin:
     
@@ -178,8 +178,8 @@ O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo
     def get_contact_msg_ru(footer: Footer):
         get_location = lambda: f"https://www.google.com/maps/@{footer.longitude},{footer.latitude},13z?hl=en-US&entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D" if footer.longitude and footer.latitude else ""
 
-        phone1 = "📞 Телефон: " + (footer.phone1 if footer.phone1 else "") + "\n"
-        phone2 = "📞 Телефон: " + (footer.phone2 if footer.phone2 else "") + "\n"
+        phone1 = "📞 Телефон: \n" + (footer.phone1 if footer.phone1 else "") + "\n"
+        phone2 = "" + (footer.phone2 if footer.phone2 else "") + "\n"
         email = ("📧 Электронная почта: " + footer.email if footer.email else "") + "\n"
         location = ("📍 Расположение: " + "<a href='{}'>Карта</a>".format(get_location()) if get_location() else "")
         telegram = ("<a href='{}'>📱 Telegram</a>\n".format(footer.telegram) if footer.telegram else "")
@@ -188,7 +188,7 @@ O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo
         facebook = ("<a href='{}'>📘 Facebook</a>\n".format(footer.facebook) if footer.facebook else "")
 
         return f"""
-<b>Спасибо, что обратились к нам!</b>
+<b>Благодарим за обращение к нам!</b>
 
 Вы можете связаться с нами по одному из следующих каналов:
 
@@ -279,8 +279,8 @@ Murojaatingizni qoldiring. Sizga yordam berishdan xursandmiz! 💬
 """
     }
     get_service_type = {
-        'uz': "📃 Iltimos! xizmatlarimizdan birini tanlang 👇",
-        'ru': "📃 Пожалуйста! выберите одну из наших услуг 👇"
+        'uz': "✅ Buyurtma qiling",
+        'ru': "✅ Заказать"
     }
     get_service_type_msg = {
         'uz': """
@@ -360,7 +360,7 @@ Biz sizga bog'lanishimiz uchun kerakli ma'lumotlarni kiriting:
 
 🏢 <b>4 комнаты и больше</b>=
 💰 1 600 000 и выше (один раз)
-💰 6 000 000 и выше (регулярно)
+💰 8 000 000 и выше (регулярно)
 
 
 🔸 <b>Уборка после ремонта</b>
@@ -439,7 +439,7 @@ Bizning taklif etgan xizmatlar:
 
 🏢 <b>4 xona va undan ko'p</b>
 💰 1 600 000 va yuqori (bir marta)
-💰 6 000 000 va yuqori (doimiy)
+💰 8 000 000 va yuqori (doimiy)
 
 
 🔸 <b>Remontdan so'ng tozalash</b>
