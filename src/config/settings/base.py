@@ -4,7 +4,6 @@ from decouple import config
 from datetime import timedelta
 from django.conf.global_settings import LANGUAGES as DJANGO_LANGUAGES
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -71,7 +70,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -212,7 +211,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # HOST = 'https://76cb-194-93-24-3.ngrok-free.app'
-HOST = 'https://20bd-185-139-138-136.ngrok-free.app'
+HOST = 'https://luxecleaning.uz/'
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -220,8 +219,8 @@ CSRF_TRUSTED_ORIGINS = [HOST]
 
 # Bot settings
 TOKEN = config("TOKEN")
+CHANNEL_ID = config("CHANNEL_ID")
 AXES_LOCKOUT_URL = HOST + '/lockout/'
-
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
@@ -269,7 +268,7 @@ JAZZMIN_SETTINGS = {
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
 
         # external url that opens in a new window (Permissions can be added)
         {"name": "Support", "url": "https://t.me/Khaydarovakbar", "new_window": True},

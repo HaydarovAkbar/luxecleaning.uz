@@ -19,39 +19,49 @@
     <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
 
-<header class="main-header clearfix" role="header">
+<header class="main-header" role="header">
     <div class="logo">
-        <img style="width: 200px; height: auto; color: yellow; margin-top: -10px;" src="{% static 'luxe_cleaning_logo.svg' %}">
+        <img style="width: 150px; height: auto; margin-top: -10px;"
+             src="{% static 'luxe_cleaning_logo.svg' %}">
+{#        <a href="{{ footer.telegram }}" class="telegram"><img src="{% static 'assets/images/telegram.png' %}"></a>#}
+{#        <a href="{{ footer.instagram }}" class="instagram"><img src="{% static 'assets/images/instagram.png' %}"></a>#}
+{#        <a href="{{ footer.facebook }}" class="facebook"><img src="{% static 'assets/images/facebook.png' %}"></a>#}
     </div>
-<!--    <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>-->
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
-            <li><a href="#section1">Главная</a></li>
-            <li><a href="#section6">Контакт</a></li>
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section1">Главная</a></li>
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section5">О нас</a></li>
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section4">Наши услуги</a></li>
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section3">Вопросы и ответы</a></li>
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section6">Связаться с нами</a></li>
+            <a style="width: 200px; height: auto; border-radius: 10px; padding: 10px; font-size: 24px; font-weight: bold;"
+               href="tel:{{ footer.phone2 }}"><i
+                    class="header-fa-phone"></i> {{ footer.phone2 }}</a>
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section6">Заказать услугу</a></li>
         </ul>
     </nav>
 </header>
 
-<!-- ***** Main Banner Area Start ***** -->
+<!-- ***** Main Banner Area Start ***** 'css 332 qator'-->
 <section class="section main-banner" id="top" data-section="section1">
-    <video autoplay muted loop id="bg-video">
-        <source src="{% static 'assets/images/cleaning-video.mp4' %}" type="video/mp4"/>
-    </video>
-
     <div class="video-overlay header-text">
         <div class="caption">
-            <h2><em>Luxe Cleaning</em> Качественная уборка для вашего комфорта!</h2>
-            <!-- <h6>Мы стараемся сделать качественную уборку дома и уложиться в один день по времени</h6> -->
-            <!--            <div class="main-button">-->
-            <!--                <div class="scroll-to-section"><a href="https://t.me/luxecleaninguz_bot">Подключение</a></div>-->
-            <!--            </div>-->
+            <h2><em>Luxe Cleaning</em></h2>
+            <h3>Чистота без компромиссов!</h3>
         </div>
     </div>
 </section>
+
 
 <!-- ***** Main Banner Area End ***** -->
 
@@ -60,18 +70,18 @@
     <div class="container">
         <div class="row">
             {% for category in categories %}
-            <div class="col-lg-4 col-12">
-                <div class="features-post">
-                    <div class="features-content">
-                        <div class="content-show">
-                            <h4><i class="fa fa-star-half-full"></i>{{ category.title1 }}</h4>
-                        </div>
-                        <div class="content-hide">
-                            <p>{{ category.text1 }}</p>
+                <div class="col-lg-4 col-12">
+                    <div class="features-post">
+                        <div class="features-content">
+                            <div class="content-show">
+                                <h4><i class="fa fa-star-half-full"></i>{{ category.title1 }}</h4>
+                            </div>
+                            <div class="content-hide">
+                                <p>{{ category.text1 }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
@@ -80,10 +90,15 @@
 <section class="section video" data-section="section5">
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>О нас</h2>
+                </div>
+            </div>
             <div class="col-md-6 align-self-center">
                 <div class="left- content" ,>
-                    <h3 style="color: #769fff; border: #0b0b0b">{{ abouts.title }}</h3>
-                    <p style="color: white; line-height: 30px">{{ abouts.description|safe }}</p>
+                    <h3>{{ abouts.title }}</h3>
+                    <p>{{ abouts.description|safe }}</p>
                     <br>
                 </div>
             </div>
@@ -113,43 +128,84 @@
             </div>
             <div class="row">
                 {% for service in services %}
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card service-card">
-                        <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
-                        <div class="card-body">
-                            <h6 class="card-title" style="font-weight: bold">{{ service.title }}</h6>
-                            <p class="card-text">{{ service.description|safe }}</p>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card service-card">
+                            <img class="card-img-top" src="{{ service.image.url }}" alt="{{ service.title }}">
+                            <div class="card-body">
+                                <h6 class="card-title"
+                                    style="font-weight: bold; color: #009FBD;">{{ service.title }}</h6>
+                                <p class="card-text">{{ service.description|safe }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
+            </div>
+            <div>
+                <h6>
+                    Указанные суммы не являются окончательной и публичной офертой. Точную сумму и информацию уточняйте
+                    по номеру телефона <em>+998 77 114 3555.</em>
+                </h6>
+            </div>
+        </div>
+</section>
+
+
+<section class="section faq" data-section="section3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Вопросы и ответы</h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="accordion">
+                    {% for faq in faqs %}
+                        <div class="card">
+                            <div class="card-header" id="heading{{ faq.id }}">
+                                <h5 class="mb-0 d-flex justify-content-between align-items-center">
+                                    <a class="question">
+                                        {{ faq.question }}
+                                    </a>
+                                    <span class="toggle-icon">&#x25BC;</span>
+                                </h5>
+                            </div>
+                            <div id="collapse{{ faq.id }}" class="collapse-content">
+                                <div class="card-body">
+                                    <p class="card-text">{{ faq.answer|safe }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="section contact" data-section="section6">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <h2>Давайте поддерживать связь</h2>
+                    <h2>Отправьте нам сообщение</h2>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 ">
 
                 <form id="contact" action="{% url 'message' %}" method="post">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-md-6">
                             <fieldset>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Ваше имя"
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Имя"
                                        required="">
                             </fieldset>
                         </div>
                         <div class="col-md-6">
                             <fieldset>
-                                <input name="phone" type="tel" class="form-control" id="phone" placeholder="Ваш телефон"
+                                <input name="phone" type="tel" class="form-control" id="phone" placeholder="Телефон"
                                        pattern="^\+998\d{9}$"
                                        title="Номер телефона должен начинаться с +998 и содержать 9 цифр."
                                        required="">
@@ -158,86 +214,92 @@
                         <div class="col-md-12">
                             <fieldset>
                                 <textarea name="message" rows="6" class="form-control" id="message"
-                                          placeholder="Ваше сообщение..." required=""></textarea>
+                                          placeholder="Сообщение..." required=""></textarea>
                             </fieldset>
                         </div>
                         <div class="col-md-12">
                             <fieldset>
-                                <button type="submit" id="form-submit" class="button">Отправить сообщение сейчас
+                                <button style="background-color: #009FBD" type="submit" id="form-submit" class="button">
+                                    Отправить
                                 </button>
                             </fieldset>
                         </div>
                     </div>
                 </form>
             </div>
+
             <div class="col-md-6">
                 <div id="map">
                     <iframe src="https://maps.google.com/maps?q={{ footer.longitude }},{{ footer.latitude }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
                             width="100%" height="422px" frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
-
             </div>
-        </div>
-    </div>
 </section>
 
 <footer>
-    <h5 style="color: #769fff;">Контакты</h5>
     {% if footer.address %}
-    <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
+        <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
     {% endif %}
-    {% if footer.phone1 %}
-    <h6 style="color: white;">Telefon nomer: {{ footer.phone1 }}</h6>
-    {% endif %}
-    {% if footer.phone2 %}
-    <h6 style="color: white;">Telefon nomer: {{ footer.phone2 }}</h6>
-    {% endif %}
+    <div style="display: flex; justify-content: center">
+        <h6 style="color: white; margin-right: 5px;">Телефон: </h6>
+        <div>
+            {% if footer.phone1 %}
+                <h6 style="color: white;"> {{ footer.phone1 }}</h6>
+            {% endif %}
+            {% if footer.phone2 %}
+                <h6 style="color: white;"> {{ footer.phone2 }}</h6>
+            {% endif %}
+
+        </div>
+    </div>
     {% if footer.email %}
-    <h6 style="color: white;">Email: {{ footer.email }}</h6>
+        <h6 style="color: white;">Email: {{ footer.email }}</h6>
     {% endif %}
     <div class="social-icons" style="margin-top: 30px;">
-        <h5 style="color: #769fff;">Социальные сети</h5>
-        {% if footer.facebook %}
-        <a href="{{ footer.facebook }}" target="_blank"
-           style="color: white; margin-right: 10px; font-size: 30px;">
-            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-        </a>
-        {% endif %}
-        {% if footer.instagram %}
-        <a href="{{ footer.instagram }}" target="_blank"
-           style="color: white; margin-right: 10px;font-size: 30px;">
-            <i class="fa fa-instagram" aria-hidden="true"></i>
-        </a>
-        {% endif %}
+            <a href="{{ footer.telegram }}" class="telegram"><img src="{% static 'assets/images/telegram.png' %}"></a>
+        <a href="{{ footer.instagram }}" class="instagram"><img src="{% static 'assets/images/instagram.png' %}"></a>
+        <a href="{{ footer.facebook }}" class="facebook"><img src="{% static 'assets/images/facebook.png' %}"></a>
+{#        {% if footer.facebook %}#}
+{#            <a href="{{ footer.facebook }}" target="_blank"#}
+{#               style="color: white; margin-right: 10px; font-size: 30px;">#}
+{#                <i class="fa fa-facebook-square" aria-hidden="true"></i>#}
+{#            </a>#}
+{#        {% endif %}#}
+{#        {% if footer.instagram %}#}
+{#            <a href="{{ footer.instagram }}" target="_blank"#}
+{#               style="color: white; margin-right: 10px;font-size: 30px;">#}
+{#                <i class="fa fa-instagram" aria-hidden="true"></i>#}
+{#            </a>#}
+{#        {% endif %}#}
         {% if footer.linkedin %}
-        <a href="{{ footer.linkedin }}" target="_blank"
-           style="color: white; margin-right: 10px;font-size: 30px;">
-            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-        </a>
+            <a href="{{ footer.linkedin }}" target="_blank"
+               style="color: white; margin-right: 10px;font-size: 30px;">
+                <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
         {% endif %}
         {% if footer.twitter %}
-        <a href="{{ footer.twitter }}" target="_blank"
-           style="color: white; margin-right: 10px; font-size: 30px;">
-            <i class="fa fa-twitter-square" aria-hidden="true"></i>
-        </a>
+            <a href="{{ footer.twitter }}" target="_blank"
+               style="color: white; margin-right: 10px; font-size: 30px;">
+                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+            </a>
         {% endif %}
-        {% if footer.telegram %}
-        <a href="{{ footer.telegram }}" target="_blank"
-           style="color: white; margin-right: 10px; font-size: 30px;">
-            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-        </a>
-        {% endif %}
+{#        {% if footer.telegram %}#}
+{#            <a href="{{ footer.telegram }}" target="_blank"#}
+{#               style="color: white; margin-right: 10px; font-size: 30px;">#}
+{#                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>#}
+{#            </a>#}
+{#        {% endif %}#}
         {% if footer.youtube %}
-        <a href="{{ footer.youtube }}" target="_blank"
-           style="color: white; margin-right: 10px; font-size: 30px;">
-            <i class="fa fa-youtube" aria-hidden="true"></i>
-        </a>
+            <a href="{{ footer.youtube }}" target="_blank"
+               style="color: white; margin-right: 10px; font-size: 30px;">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+            </a>
         {% endif %}
         {% if footer.whatsapp %}
-        <a href="{{ footer.whatsapp }}" target="_blank"
-           style="color: white; margin-right: 10px; font-size: 30px;">
-            <i class="fa fa-whatsapp" aria-hidden="true"></i>
-        </a>
+            <a href="{{ footer.whatsapp }}" target="_blank"
+               style="color: white; margin-right: 10px; font-size: 30px;">
+                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+            </a>
         {% endif %}
     </div>
     <div class="container">
@@ -264,18 +326,39 @@
 <script src="{% static 'assets/js/slick-slider.js' %}"></script>
 <script src="{% static 'assets/js/custom.js' %}"></script>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const headers = document.querySelectorAll(".card-header");
+
+        headers.forEach(header => {
+            header.addEventListener("mouseenter", toggleAnswer);  // On hover
+            header.addEventListener("focus", toggleAnswer);  // On focus (keyboard)
+
+            header.addEventListener("mouseleave", closeAnswer);  // Close on mouse leave
+        });
+
+        function toggleAnswer(event) {
+            const content = this.nextElementSibling;
+            content.style.height = content.scrollHeight + "px";
+        }
+
+        function closeAnswer(event) {
+            const content = this.nextElementSibling;
+            content.style.height = "0";
+        }
+    });
+
 
     document.querySelectorAll('.features-post').forEach(item => {
-    item.addEventListener('mouseenter', event => {
-        const content = item.querySelector('.features-content');
-        content.classList.add('hover'); // Add a class to indicate hover
-    });
+        item.addEventListener('mouseenter', event => {
+            const content = item.querySelector('.features-content');
+            content.classList.add('hover'); // Add a class to indicate hover
+        });
 
-    item.addEventListener('mouseleave', event => {
-        const content = item.querySelector('.features-content');
-        content.classList.remove('hover'); // Remove the hover class
+        item.addEventListener('mouseleave', event => {
+            const content = item.querySelector('.features-content');
+            content.classList.remove('hover'); // Remove the hover class
+        });
     });
-});
 
 
     //according to loftblog tut

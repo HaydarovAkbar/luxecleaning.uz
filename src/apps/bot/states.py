@@ -9,3 +9,13 @@ class States(Enum):
     GET_NAME = auto()
 
     GET_MENU = auto()
+    CHANGE_LANG = auto()
+    CORPORATE_CLIENTS = auto()
+    FAQ = auto()
+    SERVICE = auto()
+    GET_SERVICE_TYPE = auto()
+    FULL_NAME = auto()
+    GET_VIDEO = auto()
+
+    MESSAGE = auto()
+    GET_PHONE_NUMBER = auto()
