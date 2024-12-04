@@ -5,6 +5,6 @@ class AppsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'apps'
 
-    # def ready(self):
-    #     from apps.bot.main import run
-    #     run()
+    def ready(self):
+        from apps.bot.main import run
+        run()

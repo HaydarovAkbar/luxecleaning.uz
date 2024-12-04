@@ -51,7 +51,7 @@ PROD_APPS = [
 INSTALLED_APPS = LOCAL_APPS + PROD_APPS + DEV_APPS
 
 MIDDLEWARE = [
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # 'corsheaders.middleware.CorsMiddleware',
@@ -210,7 +210,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# HOST = 'https://76cb-194-93-24-3.ngrok-free.app'
+# HOST = 'https://03ae-45-150-25-244.ngrok-free.app'
 HOST = 'https://luxecleaning.uz/'
 
 SESSION_COOKIE_SECURE = True

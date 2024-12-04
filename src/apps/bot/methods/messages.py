@@ -46,9 +46,9 @@ class Messages(SimpleNamespace):
     }
 
     base_menu = {
-        'uz': ["✅ Xizmatni buyurtma qiling", "🤵🏻‍♂️ Korporativ mijozlar uchun", "💰 Narxlar", "🆕 Aksiya va sikidka",
-               "🆘 FAQ", "☎️ Kontaktlar", "🗑 Mening buyurtmalarim", "⚙️ Sozlamalar", "💬 Menejer bilan bog'lanish"],
-        'ru': ["✅ Заказать услугу", "🤵🏻‍♂️ Для корпоративных клиентов", "💰 Услуги", "🆕 Акции и скидки",
+        'uz': ["✅ Buyurtma qiling", "🤵🏻‍♂️ Korporativ mijozlar uchun", "💰 Xizmatlar", "🆕 Aksiya va chegirmalar",
+               "🆘 FAQ", "☎️ Bog'lanish", "🗑 Mening buyurtmalarim", "⚙️ Sozlamalar", "💬 Menejer bilan bog'lanish"],
+        'ru': ["✅ Оформить заказ", "🤵🏻‍♂️ Для корпоративных клиентов", "💰 Услуги", "🆕 Акции и скидки",
                "🆘 FAQ", "☎️ Контакты", "🗑 Мои заказы", "⚙️ Настройки", "💬 Связаться с менеджером"],
     }
 
@@ -153,8 +153,8 @@ Mana siz uchun hozirgi maxsus takliflarimiz:
     def get_contact_msg_uz(footer: Footer):
         get_location = lambda: f"https://www.google.com/maps/@{footer.longitude},{footer.latitude},13z?hl=en-US&entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D" if footer.longitude and footer.latitude else ""
 
-        phone1 = "📞 Telefon: " + (footer.phone1 if footer.phone1 else "") + "\n"
-        phone2 = "📞 Telefon: " + (footer.phone2 if footer.phone2 else "") + "\n"
+        phone1 = "📞 Telefon:\n" + (footer.phone2 if footer.phone2 else "") + "\n"
+        phone2 = "" + (footer.phone1 if footer.phone1 else "") + "\n"
         email = ("📧 Elektron pochta: " + footer.email if footer.email else "") + "\n"
         location = ("📍 Joylashuv: " + "<a href='{}'>Xarita</a>".format(get_location()) if get_location() else "")
         telegram = ("<a href='{}'>📱 Telegram</a>\n".format(footer.telegram) if footer.telegram else "")
@@ -163,23 +163,23 @@ Mana siz uchun hozirgi maxsus takliflarimiz:
         facebook = ("<a href='{}'>📘 Facebook</a>\n".format(footer.facebook) if footer.facebook else "")
 
         return f"""
-<b>Bizga murojaat qilganingiz uchun tashakkur!</b>
+<b>Bizga murojaat qilganingiz uchun minnatdorchilik bildiramiz!</b>
     
-Biz bilan quyidagi kanallardan biri orqali bog'lanishingiz mumkin:
+Biz bilan quyidagilardan biri orqali bog'lanishingiz mumkin:
     
-{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}🌐 luxecleaning.uz
+{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}🌐 www.luxecleaning.uz
 
 {location}
 
-O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo'lamiz!
+O'zingiz uchun eng qulay usulni tanlang va biz sizga yordam berishdan xursand bo'lamiz!
     """
 
     @staticmethod
     def get_contact_msg_ru(footer: Footer):
         get_location = lambda: f"https://www.google.com/maps/@{footer.longitude},{footer.latitude},13z?hl=en-US&entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D" if footer.longitude and footer.latitude else ""
 
-        phone1 = "📞 Телефон: " + (footer.phone1 if footer.phone1 else "") + "\n"
-        phone2 = "📞 Телефон: " + (footer.phone2 if footer.phone2 else "") + "\n"
+        phone1 = "📞 Телефон:\n" + (footer.phone2 if footer.phone2 else "") + "\n"
+        phone2 = "" + (footer.phone1 if footer.phone1 else "") + "\n"
         email = ("📧 Электронная почта: " + footer.email if footer.email else "") + "\n"
         location = ("📍 Расположение: " + "<a href='{}'>Карта</a>".format(get_location()) if get_location() else "")
         telegram = ("<a href='{}'>📱 Telegram</a>\n".format(footer.telegram) if footer.telegram else "")
@@ -188,11 +188,11 @@ O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo
         facebook = ("<a href='{}'>📘 Facebook</a>\n".format(footer.facebook) if footer.facebook else "")
 
         return f"""
-<b>Спасибо, что обратились к нам!</b>
+<b>Благодарим вас за обращение к нам!</b>
 
-Вы можете связаться с нами по одному из следующих каналов:
+Вы можете связаться с нами одним из следующих способов:
 
-{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}🌐 luxecleaning.uz
+{phone1}{phone2}{email}{telegram}{instagram}{youtube}{facebook}🌐 www.luxecleaning.uz
 
 {location}
 
@@ -200,14 +200,14 @@ O'zingiz uchun eng qulay yo'lni tanlang va biz sizga yordam berishdan xursand bo
             """
 
     use_service = {
-        'uz': "Xizmatni buyurtma qilish ✅",
+        'uz': "Buyurtma qilish ✅",
         'ru': "Оформить заказ ✅",
         'en': "Place an order ✅"
     }
 
     use_of_service_if_phone = {
         'uz': """
-📝 <b>Xizmatni buyurtma qilish</b>
+📝 <b>Buyurtma qilish</b>
 
 Iltimos, telefon raqamingiz to'g'riligini tekshiring!
 
@@ -228,7 +228,7 @@ Agar raqam to'g'ri bo'lsa, quyidagi tugmani bosing. Aks holda, raqamingizni qayt
 
     use_of_service_if_not_phone = {
         'uz': """
-📝 <b>Xizmatni buyurtma qilish</b>
+📝 <b>Buyurtma qilish</b>
         
 Iltimos, telefon raqamingizni yuboring!
 """,
@@ -279,8 +279,8 @@ Murojaatingizni qoldiring. Sizga yordam berishdan xursandmiz! 💬
 """
     }
     get_service_type = {
-        'uz': "📃 Iltimos! xizmatlarimizdan birini tanlang 👇",
-        'ru': "📃 Пожалуйста! выберите одну из наших услуг 👇"
+        'uz': "✅ Buyurtma qiling",
+        'ru': "✅ Оформить заказ"
     }
     get_service_type_msg = {
         'uz': """
@@ -313,12 +313,12 @@ Biz sizga bog'lanishimiz uchun kerakli ma'lumotlarni kiriting:
 
     service_price = {
         'ru': """
-✳️ <b>Благодарим за интерес к нашим услугам!</b>
+✳️ <b>Благодарим Вас за интерес к нашим услугам!</b>
 
-Услуги, которые мы предлагаем :
+Наши услуги:
 
 
-🔸 <b>Уборка коммерческих помещений (офисы, рестораны, отели и др.)</b>
+🔸 <b>Уборка коммерческих зданий (офисов, ресторанов, гостиниц и т.д.).</b>
 
 🏢 <b>до 100 м²</b>
 💰 1 000 000 – 2 000 000 сум (один раз)
@@ -375,7 +375,7 @@ Biz sizga bog'lanishimiz uchun kerakli ma'lumotlarni kiriting:
 💰 3 600 000 и выше
 
 
-🔸 <b>Специальные услуги</b>
+🔸 <b>Отдельные услуги</b>
 
 🪟 <b>Мытье окон (за м²)</b>
 💰 20 000 – 30 000 сум
@@ -393,11 +393,11 @@ Biz sizga bog'lanishimiz uchun kerakli ma'lumotlarni kiriting:
 <b>Свяжитесь с нами для получения дополнительной информации или заказа услуги!</b>
 """,
         'uz': """
-✳️ <b>Xizmatlarimizga qiziqishingiz uchun rahmat!</b>
+✳️ <b>Xizmatlarimizga qiziqish bildirganingiz uchun minnatdormiz!</b>
 
-Bizning taklif etgan xizmatlar:
+Bizning xizmatlarimiz:
 
-🔸 <b>Kommerciyal joylar (ofislar, restoranlar, mehmonxonalar va boshqalar) uchun tozalash</b>
+🔸 <b>Tijorat binolari (ofislar, restoranlar, mehmonxonalar va boshqalar)ni tozalash</b>
 
 🏢 <b>100 m² gacha</b>
 💰 1 000 000 – 2 000 000 so'm (bir marta)
@@ -412,7 +412,7 @@ Bizning taklif etgan xizmatlar:
 💰 12 000 000 va yuqori (doimiy)
 
 
-🔸 <b>Xususiy uy tozalash</b>
+🔸 <b>Xususiy uylarni tozalash</b>
 
 🏢 <b>500 m² gacha</b>
 💰 2 000 000 – 4 000 000 so'm (bir marta)
@@ -423,7 +423,7 @@ Bizning taklif etgan xizmatlar:
 💰 12 000 000 va yuqori (doimiy)
 
 
-🔸 <b>Kvartira tozalash</b>
+🔸 <b>Kvartiralarni tozalash</b>
 
 🏢 <b>1 xona</b>
 💰 800 000 - 1 200 000 so'm (bir marta)
@@ -442,7 +442,7 @@ Bizning taklif etgan xizmatlar:
 💰 6 000 000 va yuqori (doimiy)
 
 
-🔸 <b>Remontdan so'ng tozalash</b>
+🔸 <b>Ta'mirlashdan keyingi tozalash</b>
 
 🏠 <b>100 m² gacha</b>
 💰 1 800 000 – 3 000 000 so'm
@@ -454,21 +454,21 @@ Bizning taklif etgan xizmatlar:
 💰 3 600 000 va yuqori
 
 
-🔸 <b>Xususiy xizmatlar</b>
+🔸 <b>Alohida xizmatlar</b>
 
-🪟 <b>Oyni yuvish (m² bo'yicha)</b>
+🪟 <b>Derazalarni yuvish (m² bo'yicha)</b>
 💰 20 000 – 30 000 so'm
 
-🏢 <b>Fasadni yuvish (m² bo'yicha)</b>
+🏢 <b>Fasad yuvish (m² bo'yicha)</b>
 💰 15 000 - 25 000 so'm
 
-🧼 <b>Plitani yuvish (m² bo'yicha)</b>
+🧼 <b>Plita va poydevorlarni yuvish (m² bo'yicha)</b>
 💰 15 000 - 25 000 so'm
 
-🍽 <b>Boshqaruvni yuvish (1 soat)</b>
+🍽 <b>Idish-tovoqlarni yuvish (1 soat)</b>
 💰 80 000 so'm (bir marta)
 
 
-<b>Qo'shimcha ma'lumot yoki xizmat buyurtmasi uchun biz bilan bog'laning!</b>
+<b>Qo'shimcha ma'lumot olish yoki buyurtma berish uchun biz bilan bog'laning!</b>
 """
     }
