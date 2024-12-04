@@ -39,6 +39,7 @@
     </div>
     <nav id="menu" class="main-nav" role="navigation">
         <ul class="main-menu">
+<<<<<<< .mine
             <li><a style="font-weight: bold; font-size: 15px;" href="#section1">Главная</a></li>
             <li><a style="font-weight: bold; font-size: 15px;" href="#section5">О нас</a></li>
             <li><a style="font-weight: bold; font-size: 15px;" href="#section4">Наши услуги</a></li>
@@ -48,6 +49,17 @@
                href="tel:{{ footer.phone2 }}"><i
                     class="header-fa-phone"></i> {{ footer.phone2 }}</a>
             <li><a style="font-weight: bold; font-size: 15px;" href="#section6">Заказать услугу</a></li>
+=======
+<!--            <li><a style="font-weight: bold; font-size: 15px;" href="#section1">Главная</a></li>-->
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section5">О нас</a></li>
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section4">Наши услуги</a></li>
+<!--            <li><a style="font-weight: bold; font-size: 15px;" href="#section3">Вопросы и ответы</a></li>-->
+            <li><a style="font-weight: bold; font-size: 15px;" href="#section6">Связаться с нами</a></li>
+            <a style="width: 200px; height: auto; border-radius: 10px; padding: 10px; font-size: 24px; font-weight: bold;"
+               href="tel:{{ footer.phone2 }}"><i
+                    class="header-fa-phone"></i> {{ footer.phone2 }}</a>
+<!--            <li><a style="font-weight: bold; font-size: 15px;" href="#section6">Заказать услугу</a></li>-->
+>>>>>>> .theirs
         </ul>
     </nav>
 </header>
@@ -56,8 +68,13 @@
 <section class="section main-banner" id="top" data-section="section1">
     <div class="video-overlay header-text">
         <div class="caption">
+<<<<<<< .mine
             <h2><em>Luxe Cleaning</em></h2>
             <h3>Чистота без компромиссов!</h3>
+=======
+            <h2>Luxe Cleaning</h2>
+            <h3>Чистота без компромиссов!</h3>
+>>>>>>> .theirs
         </div>
     </div>
 </section>
@@ -240,6 +257,7 @@
     {% if footer.address %}
         <h6 style="color: white;">Адрес: {{ footer.address }}</h6>
     {% endif %}
+<<<<<<< .mine
     <div style="display: flex; justify-content: center">
         <h6 style="color: white; margin-right: 5px;">Телефон: </h6>
         <div>
@@ -252,6 +270,20 @@
 
         </div>
     </div>
+=======
+    <div style="display: flex; justify-content: center">
+        <h6 style="color: white; margin-right: 5px;">Телефон: </h6>
+        <div>
+            {% if footer.phone2 %}
+                <h6 style="color: white;"> {{ footer.phone2 }}</h6>
+            {% endif %}
+            {% if footer.phone1 %}
+                <h6 style="color: white;"> {{ footer.phone1 }}</h6>
+            {% endif %}
+
+        </div>
+    </div>
+>>>>>>> .theirs
     {% if footer.email %}
         <h6 style="color: white;">Email: {{ footer.email }}</h6>
     {% endif %}

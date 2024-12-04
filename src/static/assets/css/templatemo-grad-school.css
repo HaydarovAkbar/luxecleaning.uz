@@ -412,16 +412,21 @@ a.menu-link {
 .main-banner .caption h2 {
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size: 44px;
     text-transform: uppercase;
-    font-weight: 800;
-    color: #fff;
     letter-spacing: 1px;
+<<<<<<< .mine
     text-shadow: 0 0 20px rgba(225, 225, 225, 0.5);
 }
 
 .main-banner .caption h2 em {
     color: #009FBD;
+=======
+    text-shadow: 0 0 20px rgba(225, 225, 225, 0.5);
+    color: #009FBD;
+
+
+
+>>>>>>> .theirs
     font-weight: 900;
     font-size: 80px;
 }
@@ -605,7 +610,7 @@ section.courses .owl-carousel button.active {
 
 /* Button styling */
 .service-card .btn {
-    background-color: #007bff;
+    background-color: #009FBD;
     border: none;
     color: white;
     text-transform: uppercase;

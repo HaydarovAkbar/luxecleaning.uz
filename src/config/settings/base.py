@@ -210,8 +210,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+<<<<<<< .mine
 # HOST = 'https://03ae-45-150-25-244.ngrok-free.app'
 HOST = 'https://luxecleaning.uz/'
+=======
+# HOST = 'https://76cb-194-93-24-3.ngrok-free.app'
+HOST = 'https://luxecleaning.uz/'
+>>>>>>> .theirs
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
